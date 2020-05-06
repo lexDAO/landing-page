@@ -1,0 +1,45 @@
+/*  Button scss for button options and gradient classes
+    -------------------------------------------------------------------------------------------*/
+
+/* Button SCSS */
+.btn {
+  color: $white;
+  &.btn-square{
+    @include button-square-variant(0);
+  }
+  &.btn-round{
+    @include button-round-variant(2rem);
+  }
+  &:focus,&.focus,&:active, &.active {
+    outline: none;
+    box-shadow: none !important;
+  }
+}
+
+/* Gradient Button */
+.btn-gradient-blue{
+  @include btn-gradient($btn-gradient-blue-1, $btn-gradient-blue-2, $btn-gradient-blue-1)
+  &.btn-glow{
+      @include btn-gradient-glow($btn-gradient-blue-glow)
+  }
+}
+.btn-gradient-orange{
+  @include btn-gradient($btn-gradient-orange-2, $btn-gradient-orange-1, $btn-gradient-orange-2)
+  &.btn-glow{
+      @include btn-gradient-glow($btn-gradient-orange-glow)
+  }
+}
+
+.btn-gradient-purple{
+  @include btn-gradient($btn-gradient-purple-1, $btn-gradient-purple-2, $btn-gradient-purple-1)
+  &.btn-glow{
+      @include btn-gradient-glow($btn-gradient-purple-glow)
+  }
+}
+
+.btn-light{
+    color: $grey-accent2;
+    &.btn-glow{
+      @include btn-gradient-glow($white);
+    }
+  }

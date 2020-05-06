@@ -1,0 +1,154 @@
+/*  Pre-loader Component css
+    -------------------------------------------------------------------------------------------*/
+
+/* Loader wrapper */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100000;
+  .loader-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: $white;
+    z-index: 99;
+    transform: translateX(0);
+    &.section-left {
+      left: 0;
+    }
+    &.section-right {
+      right: 0;
+    }
+  }
+}
+
+/* Revel screen after page load */
+.loaded {
+  #loader-wrapper {
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: all 0.3s 1s ease-out;
+    .loader-section {
+      &.section-left {
+        transform: translateX(-100%);
+        transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+      &.section-right {
+        transform: translateX(100%);
+        transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+    }
+  }
+  #loader {
+    opacity: 0;
+    transition: all 0.5s ease-out;
+  }
+}
+
+/* SVG loader animation  */
+svg#loader {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background: $white;
+  g {
+  animation: spin 15s linear infinite;
+  transform-origin: 50% 50%;
+  circle {
+    fill: none;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    color: #EEECF4;
+    stroke-dasharray: 260, 0, 1, 0, 1, 0, 1, 0, 10, 1, 10, 1, 10, 1, 10, 1, 10, 10, 1, 10, 1, 10, 1, 10, 10, 1;
+    animation: dostuff 18s ease infinite;
+  }
+  &:nth-child(even) {
+    animation-direction: reverse;
+  }
+  &:nth-child(1n) {
+    animation-delay: -1s;
+  }
+  &:nth-child(2n) {
+    animation-delay: -2s;
+  }
+  &:nth-child(3n) {
+    animation-delay: -3s;
+  }
+  &:nth-child(4n) {
+    animation-delay: -4s;
+  }
+  &:nth-child(5n) {
+    animation-delay: -5s;
+  }
+  &:nth-child(6n) {
+    animation-delay: -6s;
+  }
+  &:nth-child(7n) {
+    animation-delay: -7s;
+  }
+  &:nth-child(1n) circle {
+    animation-delay: -1.5s;
+  }
+  &:nth-child(2n) circle {
+    animation-delay: -2.5s;
+  }
+  &:nth-child(3n) circle {
+    animation-delay: -3.5s;
+  }
+  &:nth-child(4n) circle, &:nth-child(5n) circle {
+    animation-delay: -4.5s;
+  }
+  &:nth-child(6n) circle {
+    animation-delay: -5.5s;
+  }
+  &:nth-child(7n) circle {
+    animation-delay: -6.5s;
+  }
+  &:nth-child(8n) circle {
+    animation-delay: -7.5s;
+  }
+  &:nth-child(9n) circle {
+    animation-delay: -8.5s;
+  }
+  &:nth-child(10n) circle {
+    animation-delay: -9.5s;
+  }
+  &:last-child circle {
+    fill: #ccc;
+    stroke: none;
+  }
+}
+}
+
+@keyframes dostuff {
+  50% {
+    stroke-dasharray: 10, 1, 10, 1, 10, 1, 10, 1, 10, 1, 10, 1, 10, 10, 10, 1, 20, 120, 1, 30, 1, 30, 1, 10, 30, 1;
+  }
+}
+
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+/* JavaScript Turned Off */
+
+.no-js #loader-wrapper {
+  display: none;
+}

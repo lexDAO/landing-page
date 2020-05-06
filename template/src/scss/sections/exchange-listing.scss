@@ -1,0 +1,60 @@
+/* 	Exchange Listing section : Listing title & content css */
+
+.exchange-listing{
+	.listing{
+		display: flex;
+		align-items: stretch;
+		.col{
+			margin: 1.75rem 0 0.95rem;
+			font-weight: 600;
+			padding-top:0.25rem;
+			text-align: center;
+			&:before{
+				content: "";
+				border-left: 1px solid #c2c2c2;
+				height: 4rem;
+				float: left;
+				position: relative;
+				top: 5px;
+				left: -15px;
+			}
+			&:first-child{
+				&:before{
+					border-left:none;
+				}
+			}
+			h2{
+				font-size: 2rem;
+				font-weight: 600;
+				color: $grey-accent2;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.exchange-listing{
+		.listing{
+			.col{
+				&:nth-child(2){
+					&:before{
+						border-left:none;
+					}
+				}
+			}
+		}
+	}
+}
+@include media-breakpoint-down(xs) {
+	.exchange-listing{
+		.listing{
+			.col{
+				&:nth-child(4){
+					&:before{
+						border-left:none;
+					}
+				}
+			}
+		}
+	}
+}

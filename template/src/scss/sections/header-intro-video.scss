@@ -1,0 +1,61 @@
+/* Intro video header section : Head area css */
+
+.head-area{
+	position: relative;
+	// background shape css
+	.bg-shape{
+		background: $faq-tab-active-color url("../../theme-assets/images-intro-video/banner-graphic.png") no-repeat -20% -34% / 70% auto;
+		// clip-path: polygon(0 0, 100% 0, 100% 29%, 32% 86%, 0 58%);
+		clip-path: polygon(0 0, 100% 0, 100% 38%, 32% 95%, 0 70%);
+	    width: 100%;
+	    height: 100vh;
+	    position: absolute;
+	}
+	.head-content{
+		height: 100vh;
+		z-index: 6;
+		h1{
+			color: $white;
+			font-size: 1.9rem;
+			line-height: 2.75rem;
+			font-weight: 700;
+		}
+		h3{
+			margin-top: 4.375rem;
+			color: $white;
+			font-size: 1.125rem;
+			line-height: 1.9rem;
+			font-weight: 700;
+		}
+		// Header crypto video area css
+		.crypto-video{
+			.play-video{
+				position: absolute;
+				top: 38%;
+				left: 42%;
+				background-color: white;
+				padding: 0.65rem;
+				border-radius: 50%;
+				.play{
+					display:inline-block;
+					height: 72px;
+					width: 72px;
+					&:hover{
+						text-decoration:none;
+					}
+				}
+			}
+		}
+	}
+	.container{
+		z-index: 9;
+	}
+}
+
+.template-intro-video-default{
+	.head-area{
+		.bg-shape{
+			background: $faq-tab-active-color;
+		}
+	}
+}

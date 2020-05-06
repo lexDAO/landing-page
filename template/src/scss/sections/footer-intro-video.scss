@@ -1,0 +1,110 @@
+/* Intro video footer section : Footer area css */
+
+.footer{
+	padding-top: 6.5rem;
+	padding-bottom: 6.5rem;
+	position: relative;
+	background: linear-gradient(to right, $footer-gradient1, $footer-gradient2);
+	z-index: 0;
+	// Footer parallax shape
+	&:before{
+		@include parallax("../../theme-assets/images-intro-video/footer-shape.png");
+		z-index: -1;
+	}
+	// Footer light dark css
+	&.footer-dark{
+		color: $white;
+		a{
+			color: $white;
+		}
+	}
+	&.footer-light{
+		color: $black;
+		a{
+			color: $black;
+		}
+	}
+	.footer-wrapper {
+		z-index: 1;
+		.footer-title{
+			color: $grey-accent2;
+			font-size: $font-large;
+			font-weight: 700;
+		}
+		// Subscribe area css
+		.subscribe{
+			position: relative;
+			width: 564px;
+			margin: 0 auto;
+			.subscribe-text{
+				border-radius: 6rem;
+				box-shadow: 0px 0px 16px 0 rgba($black, 0.2);
+				border: none;
+				padding: 1rem 2rem;
+				width: 100%;
+				font-weight: 600;
+				font-size: 0.875rem;
+			}
+			.subscribe-btn{
+				position: absolute;
+				right: 10px;
+				top: 6px;
+				height: 2.5rem;
+				width: 2.5rem;
+				padding-left: 0.75rem;
+				i{
+					position: absolute;
+					top: 30%;
+					left: 30%;
+				}
+			}
+		}
+		.subscribe-desc{
+			color: $grey-accent3;
+			font-weight: 700;
+		}
+		.copyright,a{
+			color: $grey-accent3;
+			font-size: $font-xsmall;
+		}
+		// Footer social area css
+		ul{
+			&.social-buttons{
+				li{
+					display: inline-block;
+					a{	
+						padding: 0.41rem 0.69rem;
+						margin-right: 1rem;
+						font-size: $font-medium;
+						border: 1px solid $dark;
+						i{
+							vertical-align: middle;
+						}
+						&:hover{
+							background-image: linear-gradient(to right, $button-gradient2 0%, $button-gradient1 100%);
+							color: $white;
+							box-shadow:  0px 0px 10px 3px rgba($button-gradient1, 0.26);
+							border: none;
+							padding: 0.472rem 0.752rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+// Small devices (landscape phones, 576px and up)
+// (min-width: 576px) and (max-width: 767.98px)
+@include media-breakpoint-only(sm) {
+	.subscribe{
+		width: 400px !important;
+	}
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// (max-width: 575.98px)
+@include media-breakpoint-only(xs) {
+	.subscribe{
+		width: 300px !important;
+	}
+}

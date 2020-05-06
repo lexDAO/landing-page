@@ -1,0 +1,44 @@
+/* header section type 1 : All page section heading with title, sub-title and desc */
+
+/* Heading section for whole page */
+.section-padding{
+	padding-top: 6.5rem;
+	padding-bottom: 6.5rem;
+}
+.heading{
+	margin-bottom: 6rem;
+	/* Main Title */
+	.title{
+		color: $grey-accent1;		
+		padding-top: 1rem;
+		margin-bottom: 0;
+	}
+	/* Sub Title */
+	.sub-title{
+		font-size: $base-font;
+		color: $grey-accent1;
+		font-weight: 700;
+	}
+	/* Section description */
+	.content-desc{
+		margin-top: 1.5rem;
+	}
+	/* Saperator of the section */
+	.separator{
+		span{
+			display:inline-block;
+			height: 7px;
+			border-radius: 1rem;	
+			background-color: $separator;
+			&.large{
+				width: 70px;
+			}
+			&.medium{
+				width: 30px;
+			}
+			&.small{
+				width: 7px;
+			}
+		}
+	}
+}

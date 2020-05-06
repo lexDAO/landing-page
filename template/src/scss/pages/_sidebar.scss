@@ -1,0 +1,137 @@
+// Sidebar CSS
+.sidebar{
+	margin-top: 4.75rem;
+	ul{
+		padding-left: 0;
+	}
+	// Social button
+	.social-card{
+		margin-bottom: 3rem;
+		.card-body{
+			padding: 1rem;
+			// Sidebar Title
+			.sidebar-title{
+				font-weight:700;
+				color: $page-font;
+				margin: 1.75rem 0
+			}
+			ul{
+				margin-bottom: 0;
+				&.social-buttons{
+					li{
+						&.social-text{
+							font-size: $font-small;
+							color: $page-font;
+							margin-right: 1rem;
+						}
+						display: inline-block;
+						a{	
+							padding: 0.34rem 0.6rem;
+							margin-right: 0.5rem;
+							font-size: $base-font;
+							border: 1px solid $secondary;
+							color: $dark;
+							i{
+								vertical-align: middle;
+							}
+							&:hover{
+								background-image: linear-gradient(to right, $btn-gradient-blue-2 0%, $btn-gradient-blue-1 100%);
+								color: $white;
+								box-shadow:  0px 0px 10px 3px rgba($btn-gradient-blue-1, 0.26);
+								border: none;
+								padding: 0.4rem 0.66rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	// Search box 
+	.search{
+		position: relative;
+		margin-top: 1rem;
+		margin-bottom: 1.75rem;
+		input{
+			font-family: 'Comfortaa';
+			color: $page-font;
+			&:placeholder {
+				color: $page-font;
+				opacity: 1;
+			}
+		}
+		.search-control{
+			background: $blog-color;
+			border: 1px solid #e7e6f1;
+			padding: 1rem;
+			width: 100%;
+		}
+		.search-submit{
+			position: absolute;
+			right: 0.5rem;
+			top: 1rem;
+			background: none;
+			border: none;
+			color: $page-font;
+			font-size: $font-medium;
+		}
+	}
+	hr{
+		margin: 2rem 0;
+	}
+	// Categories
+	.categories{
+		ul{
+			li{
+				display: inline-block;
+				width: 100%;
+				.cat-name,
+				.cat-count{
+					color: $page-font;
+					float: left;
+					font-size: 0.938rem;
+				}
+				.cat-count{
+					float: right;
+				}
+			}
+		}
+	}
+	// Latest Posts
+	.latest-posts{
+		ul{
+			li{
+				margin-bottom: 1rem;
+				a{
+					color: $page-font;
+					.post-name{
+						margin-bottom: 0.25rem;
+						margin-top: 0.65rem;
+					}
+				}
+			}
+		}
+	}
+	// contact us 
+	.contact-us{
+		background: linear-gradient(to right, $blog-gradient1, $blog-gradient2);
+		padding: 1.5rem 0 1.2rem;
+		border-radius: 7px;
+		text-align: center;
+		margin-bottom: 1rem;
+		a{
+			color: white;
+		}
+		.contact-title{
+			font-weight: 700;
+			margin-bottom: 1rem;
+		}
+		.contact-text{
+			font-size: 0.938rem;
+		}
+		.btn{
+			margin-top: 1rem;
+			padding: 0.65rem 2.25rem;
+		}
+	}
+}

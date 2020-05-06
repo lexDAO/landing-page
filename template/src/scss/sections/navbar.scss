@@ -1,0 +1,182 @@
+/*	Page sections css
+* 	----------------------------------------------------------------------------------------------*/
+
+/* Navbar section : Navbar area css */
+.navbar{
+	padding: 0;
+	.navbar-brand{
+		font-size:1.25rem;
+		img{
+			margin-right:0.65rem;
+		}
+		.brand-text{
+			position: relative;
+			top: 2px;
+			font-weight: 300;
+			text-transform: uppercase;			
+		}
+	}
+	&.navbar-dark {
+		min-height: 65px;
+	}
+	&.fixed-top{
+	}
+	&.navbar-absolute{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 999;
+		background: transparent;
+		padding: 1.2rem 0;
+		transition: all .5s ease;
+	}
+	ul{
+		&.navbar-nav{
+			li{
+				.nav-link{
+					font-size:0.8rem;
+					color: $white;
+					font-weight: 700;
+					letter-spacing: 0.5px;
+					padding: 0.21rem 0.95rem;
+					text-decoration: none;
+				}
+				&::last-child{
+					margin-right: 0.5rem;
+				}
+			}
+		}
+	}
+	// Navbar dropdown css
+	.dropdown{
+		a{
+			font-size: 0.8rem;
+			color: $white;
+			font-weight: 700;
+			text-decoration: none;
+			padding: 1.9rem 0.65rem;
+		}
+		.dropdown-menu{
+			background-color: white;
+			margin-top: 1rem;
+			min-width: 200px;
+			border: none;
+			a{
+				color: $grey-accent2;
+				padding: 0.5rem 0.75rem;
+				&:before {
+					font-family: 'themify';
+					content: "\e649";
+					padding-right: 0.5rem;				
+					font-weight: 700;
+					font-size: 0.55rem;
+					transition: all .5s ease;
+				}
+				&.dropdown-item{
+					border: none;
+					transition: all .5s ease;
+					&:hover, &:focus, &:active{
+						padding-left: 20px;
+						transition: all .5s ease;
+						background-color:transparent;
+						&:before{
+							left: 10px;
+						}
+					}
+				}
+			}
+			&.show{
+				border: none;
+				box-shadow: -1px 2px 25px 0px rgba(0,0,0, 0.09);
+				&:before {
+					float: right;
+					content: "";
+					border-bottom: 10px solid $white;
+					border-left: 8px solid transparent;
+					border-right: 8px solid transparent;
+					position: absolute;
+					left: 13px;
+					top: -8px;
+				}
+			}
+		}
+	}
+
+	// Navbar light css
+	&.navbar-light {
+		min-height: 65px;
+		a{
+			color: $grey-accent2;
+			&.btn{
+				color: $white;
+			}
+		}
+		ul{
+			&.navbar-nav{
+				li{
+					.nav-link{
+						color: $grey-accent2;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Main Navigation Area
+#navigation{
+  // Sliding Underline
+  #slide-line{
+	position: absolute;
+	bottom: 0;
+	height: 4px;
+	transition: all .3s ease;
+  }
+}
+
+// Navbar fixed css
+header{
+	.navbar{
+		&.navbar-fixed{
+			background: linear-gradient(to right, $header-gradient1, $header-gradient2);
+			padding: 0.75rem 0;
+		}
+		&.navbar-shadow{
+			box-shadow: 0 5px 40px rgba(14, 42, 76, 0.2);
+		}
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@include media-breakpoint-down(lg) {
+	.navbar ul.navbar-nav li .nav-link{
+		padding-left: 0.55rem;
+		padding-right: 0.55rem;
+	}
+}
+
+/* Responsive navbar for medium and small screen */
+@include media-breakpoint-down(md) {
+	.main-menu.navbar {
+		.dropdown-menu.show:before {
+			display: none;
+		}
+		a.navbar-brand {
+			padding: 0.21rem 1rem;
+		}
+		.navbar-toggler {
+			margin-right: 1rem;
+			border-color:rgba($white,0.7);
+		}
+		div.navbar-nav {
+			padding: 1rem 1.5rem;
+			.dropdown {
+				padding: 0 !important;
+			}
+			.nav-link {
+				padding: 0.40rem 0.65rem;
+			}
+		}
+	}
+}

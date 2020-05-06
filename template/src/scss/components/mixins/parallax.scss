@@ -1,0 +1,13 @@
+//   Background Parallax image Mixins
+//   -------------------------------------------------------------------------------------------
+
+@mixin parallax($url) {
+	content: "";
+	background: url($url) 50% 50% no-repeat fixed;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}

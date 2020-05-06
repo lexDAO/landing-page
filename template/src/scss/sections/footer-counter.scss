@@ -1,0 +1,109 @@
+/* Counter footer section : Footer area css */
+
+.footer{
+	padding-top: 6.5rem;
+	padding-bottom: 6.5rem;
+	position: relative;
+	background: linear-gradient(to right, $footer-gradient1, $footer-gradient2);
+	z-index: 0;
+	// Footer background shape
+	&::after{
+		content: "";
+		background: url("../../theme-assets/images-counter/footer-shape.png") no-repeat bottom right;
+		width: 323px;
+		position: absolute;
+		height: 293px;
+		bottom: 0;
+		right: 12%;
+		z-index: -1;
+	}
+	// Footer dark/light css
+	&.footer-dark{
+		color: $white;
+		p, a{
+			color: $white;
+		}
+	}
+	&.footer-light{
+		color: $black;
+		a{
+			color: $black;
+		}
+	}
+	.footer-wrapper {
+		z-index: 1;
+		.footer-title{
+			font-size: $font-large;
+		}
+		// Subscribe section css
+		.subscribe{
+			position: relative;
+			width: 564px;
+			margin: 0 auto;
+			.subscribe-text{
+				border-radius: 6rem;
+				box-shadow: none;
+				border: none;
+				padding: 1rem 2rem;
+				width: 100%;
+				font-weight: 600;
+				font-size: 0.875rem;
+			}
+			.subscribe-btn{
+				position: absolute;
+				right: 10px;
+				top: 7px;
+				height: 2.5rem;
+				width: 2.5rem;
+				padding-left: 0.75rem;
+				i{
+					position: absolute;
+					top: 30%;
+					left: 30%;
+				}
+			}
+		}
+		// Social media button footer css
+		ul{
+			&.social-buttons{
+				li{
+					display: inline-block;
+					a{	
+						padding: 0.41rem 0.69rem;
+						margin-right: 1rem;
+						font-size: $font-medium;
+						border: 1px solid $light;
+						i{
+							vertical-align: middle;
+						}
+						&:hover{
+							background-image: linear-gradient(to right, $button-gradient2 0%, $button-gradient1 100%);
+							color: $white;
+							box-shadow:  0px 0px 10px 3px rgba($button-gradient1, 0.26);
+							border: none;
+							padding: 0.472rem 0.752rem;
+						}
+					}
+				}
+			}
+		}
+		.copyright{
+			font-size: $font-xsmall;
+		}
+	}
+}
+// Small devices (landscape phones, 576px and up)
+// (min-width: 576px) and (max-width: 767.98px)
+@include media-breakpoint-only(sm) {
+	.subscribe{
+		width: 400px !important;
+	}
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// (max-width: 575.98px)
+@include media-breakpoint-only(xs) {
+	.subscribe{
+		width: 300px !important;
+	}
+}

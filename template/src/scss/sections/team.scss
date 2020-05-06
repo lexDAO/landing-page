@@ -1,0 +1,101 @@
+/* Team section : Team & Advisor section with team image and description */
+
+.team{
+	.team-width{		
+		span{
+			display: block;
+			font-size: $font-large;
+			font-weight: $font-weight-bold;
+			color: $grey-accent2;
+		}
+	}
+	.team-img{
+		padding:7px;
+		border-radius: 50%;
+		cursor: pointer;
+		background: linear-gradient(45deg, $team-gradient1, $team-gradient2);
+		@include btn-gradient-glow($team-gradient1);
+		position: relative;
+		z-index: 1;
+		&:hover{
+			@include btn-gradient-glow($team-active-gradient1);
+			background: linear-gradient(45deg, $team-active-gradient1, $team-active-gradient2);
+			&:before{
+		    	border-image-source: linear-gradient(to top, $team-active-gradient1, $team-active-gradient2);
+		    	transform: rotate(55deg);
+		    }
+		    ~.team-icon{
+				background: linear-gradient(45deg, $team-active-gradient1, $team-active-gradient2);
+			}
+		}
+		img{
+			border: 5px solid $white;
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			height: 200px;
+			top: -28px;
+			left: 50%;
+			z-index: -1;
+			transform: rotate(45deg);
+			border-right: 3px solid $team-gradient1;
+		    border-image-source: linear-gradient(to top, $team-gradient1, $team-gradient2);
+		    border-image-slice: 0.5;
+		    transition-property: transform;
+		    transition-duration: 0.5s;
+		}
+	}
+	.team-icon{
+		position: absolute;
+		left: 135px;
+		bottom: 25%;
+		z-index: 1;
+		border-radius: 50%;
+		background: linear-gradient(45deg, $team-gradient1, $team-gradient2);
+		padding: 0.2rem 0.1rem 0.017rem 0.17rem;
+		i{
+			background: $white;
+			padding: 0.25rem 0.3rem;
+			border-radius: 50%;
+			font-size: $font-small;
+		}
+	}
+	.profile{
+		.name{
+			font-size: $font-medium;
+			font-weight: $font-weight-bold;
+			color: $grey-accent2;
+		}
+		.role{
+			font-size: $font-small;
+			color: $grey-accent3;
+		}
+		img{
+			height: 40px;
+			left: -10px;
+			position: relative;
+		}
+		.social-profile{
+			a{
+				text-decoration: none;
+				font-size: $font-medium;
+				color: $grey-accent2;
+			}
+		}
+	}
+}
+
+/* Team modal popup scss */
+.team-modal{
+	background: linear-gradient(45deg, rgba($team-gradient1, 0.85), rgba($team-gradient2, 0.85));
+	.close{
+		position: absolute;
+	    right: 1rem;
+	    top: 1rem;
+	    z-index: 9;
+	}
+	.progress{
+		height: 6px;
+	}
+}

@@ -1,0 +1,198 @@
+/* Roadmap section : Roadmap active area, buttons, and content */
+
+.roadmap{
+  .roadmap-container{
+    position:relative;
+  }
+  .swiper-container {
+    width: 90%;
+    height: 100%;
+  }
+  // Roadmap horizontal Line
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    width: 200px;
+    border-top: 4px solid $roadmap;
+    .roadmap-info{
+      margin-top: 47px;
+    }
+    &.active{
+      // Active road map information
+      .roadmap-info{
+        background: linear-gradient(45deg, $roadmap-active-box-gradient1, $roadmap-active-box-gradient2);
+        margin-top: 32px;
+        padding: 15px 0 0;
+        color: white;
+        border-radius: 6px;
+        box-shadow: 0px 10px 30px 0 rgba(62, 57, 107, 0.3);
+        &:after {
+          content: '';
+          display: block;  
+          position: absolute;
+          top:12px;
+          left: 44%;
+          bottom: 100%;
+          width: 0;
+          height: 0;
+          border-bottom: 10px solid $roadmap-active-box-gradient2;
+          border-top: 10px solid transparent;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+        }
+      }
+      .live{
+        display: block;
+        background: linear-gradient(45deg, $roadmap-active-button-gradient1, $roadmap-active-button-gradient2);
+        padding: 8px 0;
+        border-radius: 0 0 6px 6px;
+        margin-top: 10px;
+      }
+    }
+  }
+  .swiper.control{
+    position:absolute;
+  }
+  // Next/prev buttons
+  .next-slide, .prev-slide{
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    cursor: pointer;
+    background: linear-gradient(45deg, $roadmap-button-gradient1, $roadmap-button-gradient2);
+    color: $white;
+    padding: 17px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 6px 0 rgba(255,95,43,0.6);
+    z-index: 9;
+    &:focus{
+      outline: none;
+    }
+  }
+
+  .next-slide{
+    right: 22px;
+    &:before {
+      content: "\e649";
+      font-family: themify;
+      position: absolute;
+      top: 5px;
+      left: 10px;
+    }
+  }
+
+  .prev-slide{
+    left: 22px;
+    &:before {
+      content: "\e64a";
+      font-family: themify;
+      position: absolute;
+      top: 5px;
+      left: 8px;
+    }
+  }
+
+
+  .timeline {
+    margin: 1rem 0 2rem 0;
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    text-align: center;
+  }
+
+
+  
+
+  // Timestamp dot, dot with right sign and active dot
+  .timestamp {
+    margin-bottom: 10px;
+    color:  $roadmap-timestamp-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 100;
+    span {
+      font-weight: 700;
+      font-size: $font-small;
+      line-height: 1.5rem;
+      &:before {
+        content: '';
+        width: 25px;
+        height: 25px;
+        background-color: white;
+        border-radius: 25px;
+        background: linear-gradient(45deg, $roadmap-circle-gradient1, $roadmap-circle-gradient2);
+        border:none;
+        position: absolute;
+        top: -14px;
+        left: 42%;
+        transition: all 200ms ease-in;
+      }
+      &:after {
+        content: '';
+        width: 11px;
+        height: 11px;
+        background-color: white;
+        border-radius: 25px;
+        position: absolute;
+        top: -7px;
+        left: 45.4%;
+        transition: all 200ms ease-in;
+      }
+    }
+    &.completed{
+      span {
+        &:before {
+          content: "\e64c";
+          font-family: themify;
+          color: white;
+          font-size: 0.75rem;
+          line-height: 25px;
+          background: linear-gradient(45deg, $roadmap-circle-gradient1, $roadmap-circle-gradient2);
+          border:none;
+          color: $white;
+        }
+        &:after {
+          content: '';
+          background-color: transparent;
+        }
+      }
+    }
+    &.active{
+      span {
+        color: $white;
+        &:before {
+          content: " ";
+          background: linear-gradient(45deg, $roadmap-active-circle-gradient1, $roadmap-active-circle-gradient2);
+          border: none;
+          box-shadow: 0px 0px 10px 0 $roadmap-active-circle-gradient1;
+        }
+        &:after{
+          content: '';
+          position: absolute;
+          top: -8px;
+          left: 45.1%;
+          background: $white;
+          border: 6px solid $white;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+  .status {
+    position: relative;
+    transition: all 200ms ease-in;
+    line-height: 0;
+    span{
+      font-size: $font-small;
+      line-height: 1.5rem;
+      color: $grey-accent3;
+    }
+    &.active{
+      span{
+        color: $white;
+      }
+    }
+  }
+}

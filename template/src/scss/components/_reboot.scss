@@ -1,0 +1,14 @@
+/*  Basic reboot css
+    -------------------------------------------------------------------------------------------*/
+
+body{
+	overflow-x: hidden;
+}
+p{
+  font-size: 0.938rem;
+}
+a{
+	&:hover{
+		text-decoration: none;
+	}
+}

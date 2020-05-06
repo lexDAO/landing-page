@@ -1,0 +1,46 @@
+.error404{
+	background: linear-gradient(to right, $error-gradient1, $error-gradient2);
+	position: relative;
+	.particles-js-canvas-el{
+		z-index: 0;
+	}
+	.error-img{
+		height: 100vh;
+		overflow: hidden;
+		img{
+			height:100%;
+		}
+	}
+	.error-content{
+		position: absolute;
+		bottom: 18%;
+		left: 50%;
+		margin-left: -191px;
+		.error-info{
+			color: $white;
+			font-weight: 700;
+			margin-bottom: 1.5rem;
+			.btn{
+				padding: 0.6rem 2rem;
+			}
+		}
+	}
+}
+@include media-breakpoint-down(md) {
+	.error404{
+		.error-img{
+			img{
+				height:auto;
+			}
+		}
+	}
+}
+@media (max-width: 399px) {
+	.error404{
+		.error-content{
+			.error-info{
+				padding-left: 2rem;
+			}
+		}
+	}
+}
