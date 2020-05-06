@@ -1,0 +1,26 @@
+/* 3d graphics header section : Head area css */
+
+.head-area{
+	position: relative;
+	.head-content{
+		height: 100vh;
+		z-index: 6;
+		h1{
+			color: $white;
+			font-size: 1.9rem;
+			line-height: 2.75rem;
+			font-weight: 700;
+		}
+		h3{
+			margin-top: 4.375rem;
+			color: $white;
+			font-size: 1.125rem;
+			line-height: 1.9rem;
+			font-weight: 700;
+		}
+		.container{
+			z-index: 9;
+		}
+	}
+	
+}

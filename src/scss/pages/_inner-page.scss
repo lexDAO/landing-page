@@ -1,0 +1,109 @@
+body{
+	&.inner-page{
+		background-image: none;
+		background-color: #f5f4fb;
+	}
+}
+.section-bg-inner{
+	background-color: #f5f4fb;
+}
+.page-title{
+	text-transform: uppercase;
+	color: white;
+	font-weight: 700;
+	line-height: 2.5rem;
+	margin-bottom: 0;
+}
+.sub-page{
+	.page-header{
+		background: linear-gradient(to right, $blog-gradient1, $blog-gradient2);
+		height: 500px;
+		width:100%;
+		position: relative;
+		.img{
+			content: "";
+			background: url('../../theme-assets/images/blockchain.png');
+			opacity: 0.2;
+			width: 100%;
+			height: 500px;
+		}
+		.head-content{
+			position: absolute;
+			top: 220px;
+			text-align: center;
+		}
+	}
+	.breadcrumb{
+		background: none;
+		color: #fff;
+		font-size: 1rem;
+		display: inline-block;
+		a{
+			color: #fff;
+			font-size: 1rem;
+			font-weight:300;
+			padding-left: 5px;
+			padding-right: 5px;
+			&:first-child{
+				padding-left: 0;
+			}
+			&.current{
+				font-weight:700;
+			}
+			&:hover{
+				text-decoration: none;
+			}
+		}
+	}
+	.section-padding {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+	.page-desc-title{
+		font-weight: 700;
+		margin-bottom: 2rem;
+		color: $page-font;
+		&.title-border {
+			border-left: 5px solid #3f3f3f;
+			padding-left: 1.1rem;
+			padding-top: 4px;
+		}
+	}
+	.features{
+		.page-desc-title{
+			margin-bottom: 0.25rem;
+			margin-top: 1.25rem;
+		}
+		.feature-number{
+			font-size: 6rem;
+			line-height: 6rem;
+			font-weight: 700;
+			color: #1f86ff;
+		}
+		.feature-name{
+			font-size: 1.3rem;
+			color: $page-font;
+			font-weight: 700;
+			margin-bottom: 0.75rem;
+		}
+	}
+	p{
+		color: $inner-para;
+	}
+}
+.inner-page-sidebar{
+	.sidebar {
+		margin-top: -7.3rem;
+		.card{
+			border: none;
+		}
+	}
+}
+@include media-breakpoint-down(md) {
+	.inner-page-sidebar{
+		.sidebar {
+			margin-top: 0;
+			margin-bottom: 4rem;
+		}
+	}
+}

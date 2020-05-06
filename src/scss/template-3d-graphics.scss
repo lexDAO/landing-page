@@ -1,0 +1,75 @@
+/* 	----------------------------------------------------------------------------------------------
+*	File Name: template-3d-graphics.scss
+* 	Description: 3D Graphics Template Specific CSS
+* 	----------------------------------------------------------------------------------------------
+* 	Item Name: Crypto ICO - Cryptocurrency Website Landing Page HTML Template
+* 	Version: 1.0
+* 	Author: PIXINVENT
+* 	Author URL: http://www.themeforest.net/user/pixinvent
+* 	----------------------------------------------------------------------------------------------*/
+
+// Core variables and mixins
+@import "bootstrap/functions";
+@import "bootstrap/mixins";
+
+// Load bootstrap overrides
+@import "../../assets/scss/variables/variables";   // Load assets custome variable
+@import "variables/variables";                               // Load theme custome variable
+@import "bootstrap/variables";
+
+// Load common variables
+@import "variables/theme-variables";
+@import "../../assets/scss/variables/theme-variables";
+
+// Load theme overrides
+@import "variables/template-3d-graphics-variables";
+@import "../../assets/scss/variables/template-3d-graphics-variables";
+
+// Custom Mixins
+@import "components/mixins/buttons";
+@import "components/mixins/parallax";
+
+// Extended Bootstrap
+@import "components/reboot";
+@import "components/type";
+@import "components/preloader";
+@import "components/buttons";
+@import "components/forms";
+@import "components/progress";
+@import "components/dropdowns";
+@import "components/utilities";
+
+// Custom Components
+@import "components/bg-particles";
+@import "components/bg-ripple";
+@import "components/token-sales";
+
+// Extended vendors
+@import "components/flipclock";
+@import "components/sales-notification";
+@import "components/vertical-social";
+
+// Page sections
+@import "sections/navbar";
+@import "sections/header-3d-graphics";
+@import "sections/about";
+@import "sections/exchange-listing";
+@import "sections/section-heading-type2";
+@import "sections/whitepaper";
+@import "sections/token-sale";
+@import "sections/mobile-app";
+@import "sections/roadmap";
+@import "sections/team";
+@import "sections/faq";
+@import "sections/contact-type2";
+@import "sections/footer-3d-graphics";
+
+// Pages
+@import "pages/blog";
+@import "pages/sidebar";
+@import "pages/inner-page";
+@import "pages/search";
+@import "pages/error";
+
+// 3D graphics template css for all pages
+@import "templates/template-3d-graphics";

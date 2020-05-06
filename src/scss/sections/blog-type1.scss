@@ -1,0 +1,73 @@
+/* Blog Type 1 : Blog with left text and right image with button */
+
+.blog{
+	.blog-footer{
+		font-weight: 700;
+	}
+	.border-dash{
+		border: 1px dashed $separator;
+		border-radius: 1rem;
+		margin-bottom: 5rem;
+		// On hover, move image up
+		&:hover, &:focus, &:active{
+			.card-body{
+					.blog-img{
+					&.overlap{
+						transform: translate3d(0,-50px,0);
+					}
+				}
+			}
+		}
+		.card-body{
+			z-index:99;
+			.blog-content{
+				width: 60%;
+				.card-title{
+					color: $grey-accent2;
+					font-size: $font-medium;
+				}
+				.card-text{
+					font-size: $font-small;
+				}
+			}
+			.blog-img{
+				&.overlap{
+					margin-top: -40px;
+					border-radius: 1rem;				
+					box-shadow: -4px 6px 12px 0px rgba(0, 0, 0, 0.1);
+					transform: translateZ(0);
+    				transition: all .5s cubic-bezier(.34,1.61,.7,1);
+					img{
+						border-radius: 0.25rem;
+						@include media-breakpoint-up(md) {
+							position: absolute;
+							&.left-img{
+								left:0;
+							}
+							&.right-img{
+								right:0;
+							}
+						}
+					}
+				}
+			}
+		}
+		// Card footer read-more button
+		.card-footer{
+			background-color: #f3f2f7;
+			border:none;
+			.blog-footer{
+				font-size: $font-small;
+				color: $grey-accent2;
+			}
+			.read-more{
+				margin-left: 2rem;
+				z-index:99;
+				position: relative;
+				display: inline-block;
+				vertical-align: middle;
+				font-size: $font-small;
+			}
+		}
+	}
+}

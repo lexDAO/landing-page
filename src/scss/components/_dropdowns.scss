@@ -1,0 +1,71 @@
+/* Dropdown down arrow css
+    -------------------------------------------------------------------------------------------*/
+
+.dropdown-toggle::after {
+    font-family: 'themify';
+    content: "\e64b";
+    border: none;
+    position: relative;
+    top: 1px;
+    right: 0;
+    padding: 0 2px 0 6px;
+    margin: 0 0.3em 0 0;
+    vertical-align: 0;
+    font-size: 0.6rem;
+    font-weight: 700;
+}
+.main-menu{
+    .dropdown-item{
+        padding-left: 0;
+        &.active{
+            background: none;
+            padding-left: 20px !important;
+            transition: all .5s ease;
+        }
+    }
+}
+/*  Multilevel Menu
+    -------------------------------------------------------------------------------------------*/
+.dropdown-submenu {
+    position: relative;
+    >.dropdown-menu {
+        top: 0;
+        left: 100%;
+        border-radius: 6px;
+        margin-left: 0.15rem;
+        margin-top: 0.25rem !important;
+
+    }
+    &:hover{
+        >.dropdown-menu {
+            display: block;
+        }
+        >a{
+            &:after {
+                border-left-color: #fff;
+            }
+        }
+    }
+    >a{
+        &:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: 0px;
+        }
+    }
+    &.dropleft{
+        >.dropdown-menu{
+            left: auto;
+            margin-top: 0.25rem !important;
+            margin-left: 0;
+        }
+    }
+}

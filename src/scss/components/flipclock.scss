@@ -1,0 +1,116 @@
+/*	Modification of flipclock CSS
+* 	----------------------------------------------------------------------------------------------*/
+
+.clock-counter{
+	.flip-clock-divider{
+		&:first-child{
+			width:0 ;
+		}
+		width:16px;
+		.flip-clock-label{
+			font-family: $font-family-base;
+			font-size: $font-small;
+			right: -70px;
+		}
+		&.minutes,
+		&.seconds{
+			.flip-clock-label {
+			    right: -80px;
+			}
+		}
+	}
+	.flip{
+		.inn{
+			font-family: $font-family-base;
+			font-size: $font-large;
+			font-weight: 600;
+		}
+	}
+	.flip-clock-wrapper{
+		ul{
+			width: 43px;
+			height: 65px;
+			background: $white !important;
+			li{
+				line-height: 4.5rem;
+				a{
+					color: #3f3f3f !important;
+					div{
+						&.up{
+							height: 52%;
+							top: -2px;
+							&:after{
+								top:32px;
+								height: 1px;
+								background-color:$black !important;
+								background-color: rgba($black, 0.4) !important;
+							}
+							div{
+								&.inn{
+									text-shadow: 0 1px 2px $white !important;
+									background-color: $white !important;
+									color: #3f3f3f !important;
+								}
+							}
+						}
+						&.down{
+							height: 51%;
+							div{
+								&.inn{
+									text-shadow: 0 1px 2px $white !important;
+									background-color: $white !important;
+									color: #3f3f3f !important;
+								}
+							}
+						}
+					}
+				}
+			}
+			&.play{
+				li{
+					&.flip-clock-before,
+					&.flip-clock-active{
+						.up{
+							.shadow{
+								background: transparent !important;
+								animation: none !important;
+							}
+						}
+						.down{
+							.shadow{
+								background: transparent !important;
+								animation: none !important;
+							}
+						}
+
+					}
+				}
+			}
+		}
+		.flip-clock-dot{
+			width: 7px;
+			height: 7px;
+		}
+		.flip, 
+		.flip-clock-dot{
+			background: $white;
+			box-shadow: 2px 1px 11px rgba(0, 0, 0, 0.37) !important;
+			&.top{
+				top: 24px;
+			}
+			&.bottom{
+				bottom: 48px;
+			}
+		}
+		.flip-clock-meridium{
+			a{
+				color: $white !important;
+			}
+		}
+		.flip-clock-divider{
+			.flip-clock-label{
+				color: $white !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,95 @@
+/*  Background ripple effect scss
+*   -------------------------------------------------------------------------------------------*/
+
+@keyframes k1 {
+    0% {
+        transform: scale(0.01);
+        opacity: 0
+    }
+    33% {
+        transform: scale(0.4);
+        opacity: 0.8
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0
+    }
+}
+.bg-ripple-animation{
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;  
+}
+.left-bottom-ripples{
+    margin-bottom: -80vh;
+    margin-left: -80vh;
+    width: 160vh;
+    height: 160vh;
+    position: absolute;
+    left: 0;
+    bottom: 0;  
+}
+.intro-video-bg-ripples{
+    margin-top: 21vh;
+    margin-left: -6vh;
+    width: 140vh;
+    height: 140vh;
+    position: absolute;
+    left: 0;
+}
+
+.top-right-ripples{
+    margin-top: -80vh;
+    margin-right: -80vh;
+    width: 160vh;
+    height: 160vh;
+    position: absolute;
+    top: 0;
+    right: 0;   
+}
+.ripples{
+    width: 100%;
+    height: 100%;
+    text-align: center; 
+
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, rgba(182, 225, 235, 0) 0%, rgba(182, 225, 235, 0.05) 40%, rgba(182, 225, 235, 0.4) 100%);
+        border: .5px solid white;
+        border-radius: 50%;
+        opacity: 0;
+        transform: scale(1);
+        animation-name: k1;
+        animation-duration: 6s;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, rgba(182, 225, 235, 0) 0%, rgba(182, 225, 235, 0.05) 40%, rgba(182, 225, 235, 0.4) 100%);
+        border: .5px solid white;
+        border-radius: 50%;
+        opacity: 0;
+        animation-name: k1;
+        animation-duration: 6s;
+        animation-delay: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+}

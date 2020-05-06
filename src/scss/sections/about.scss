@@ -1,0 +1,38 @@
+/* 	About section : about content, image and play button css */
+
+.about{
+	.content-area{
+		h4{
+			color: $grey-accent2;			
+		}
+		h6{
+			color: $grey-accent2;
+			font-size: $font-medium;
+			line-height: 1.5rem;
+		}
+		// Play video section
+		.play-video{
+			position: absolute;
+			top: 78%;
+			left: 53%;
+			transform: translate(-70%, -50%);
+			.play{
+				padding: 1.125rem 1.1rem;
+				display:inline-block;
+				height: 72px;
+				width: 72px;
+				&:hover{
+					text-decoration:none;
+				}
+				i{
+					font-size: $font-large;
+				}
+			}
+			span{
+				display: block;
+				color: $grey-accent3;
+				font-size: $font-small;
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+/*  Gradient progress bar colors
+    -------------------------------------------------------------------------------------------*/
+
+.progress{	
+	.progress-blue{
+		background: linear-gradient(to right, $btn-gradient-blue-1, $btn-gradient-blue-2);		
+	}
+	.progress-orange{
+		background: linear-gradient(to right, $btn-gradient-orange-1, $btn-gradient-orange-2);		
+	}
+	.progress-purple{
+		background: linear-gradient(to right, $btn-gradient-purple-1, $btn-gradient-purple-2);		
+	}
+}

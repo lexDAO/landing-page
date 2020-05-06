@@ -1,0 +1,35 @@
+/*  Vertical Social bar SCSS
+    -------------------------------------------------------------------------------------------*/
+.vertical-social {
+	z-index: 999;
+	top: 35% !important;
+	left: 2% !important;
+	width: 44px;
+	border-radius: 40px;
+	box-shadow:	0px 4px 13px 0 rgba(0,0,0,.4);
+	.midnightHeader{
+		.midnightInner{
+			ul{
+				margin-bottom: 0;
+				padding: 14px 0 8px;
+				li{
+					padding: 7px 0;
+					text-align: center;
+					a{
+						opacity: .6;
+						font-size: 22px;
+						&:hover{
+							text-decoration: none;
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@include media-breakpoint-down(md) {
+	.vertical-social{
+		display: none !important;
+	}
+}

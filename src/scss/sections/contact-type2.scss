@@ -1,0 +1,34 @@
+/* contact page : Contact area info and icons */
+
+.contact{
+	position:relative;
+	.contact-info{
+		display: flex;
+		justify-content: space-between;
+		li{
+			padding: 2rem 0;
+			flex: 0 1 auto;
+			i{
+				color: $contact-icon-color;
+				font-size: $font-large;
+			}
+			span{
+				vertical-align: top;
+				font-size: $font-medium;
+				color: $grey-accent3;
+				padding-left: 0.8rem;
+			}
+		}
+	}
+}
+
+// Responsive navbar for medium and small screen
+@include media-breakpoint-down(md) { 
+	.contact{
+		.contact-info{
+			li{
+				padding: 0.5rem 0;
+			}
+		}
+	}
+}

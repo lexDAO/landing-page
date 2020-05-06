@@ -1,0 +1,196 @@
+/* Counter header section : Head area css */
+
+.head-area{
+	position: relative;
+	.head-content{
+		// Header background gradient and height
+		height: 100vh;
+		color: $white;
+		z-index: 6;
+		padding-top: 5.125rem;
+		background: linear-gradient(to right, $header-gradient1, $header-gradient2);
+		// Background transparent image
+		&::after{
+			content: "";
+			background: url("../../theme-assets/images-counter/banner-shape.png") no-repeat center right;
+			height: 436px;
+			width: 899px;
+			position: absolute;;
+			right: 0;
+			top: 30%;
+		}
+		.container{
+			z-index: 9;
+		}
+		h1{
+			color: $white;
+			font-size: 2.8125rem;
+			font-weight: 700;
+		}
+		h3{
+			font-weight: 300;
+			color: $white;
+			font-size: 2rem;
+			strong{
+				font-weight: 700;
+			}
+		}
+		// Crypto links after buttons
+		ul.crypto-links {
+			padding-top: 0.8rem;
+			li {
+				display: inline;
+				padding: 0 0.6rem;
+			}
+		}
+		// Progress bar css
+		.progress {
+			background: $white;
+			border: 4px solid $white;
+			border-radius: 1rem;
+			height: 1.875rem;
+			overflow: initial;
+		}
+		.progress-bar-custom {
+			background: $white;
+			border-radius: 1rem;
+			height: 1.36rem;
+			background: linear-gradient(to right,$progress-gradient1, $progress-gradient2);
+			box-shadow: 2px 0px 7px 0 rgba(0, 0, 0, 0.35);
+		}
+		.progress-top{
+			position: absolute;
+			top: 0.8rem;
+			display: flex;
+			align-items: stretch; /* Default */
+			justify-content: space-between;
+			width: 100%;
+			color: $white;
+			padding: 0 1rem;
+			li{
+				display: block;
+				flex: 0 1 auto; /* Default */
+				&.pre-sale{
+					position: relative;
+					left: 1rem;
+				}
+				&.bonus{
+					position: relative;
+					right: 1rem;
+				}
+			}
+		}
+		.progress-bars{
+			position: absolute;
+			top: 1.9rem;
+			display: flex;
+			align-items: stretch; /* Default */
+			justify-content: space-between;
+			width: 100%;
+			color: $white;
+			padding: 0 1rem;
+			li{
+				display: block;
+				flex: 0 1 auto; /* Default */
+			}
+		}
+		.progress-bottom{
+			position: absolute;
+			bottom: 0.8rem;
+			display: flex;
+			color: $white;
+			align-items: stretch; /* Default */
+			justify-content: space-between;
+			width: 100%;
+			padding: 0 1rem;
+			.progress-info{
+				display: block;
+				flex: 0 1 auto;
+			}
+		}
+	}
+	// Right big logo area
+	.logo-wrapper{
+		overflow: hidden;
+		width: 25.35rem;
+		height: 25.35rem;
+		background-color: $white;
+		border-radius: 20rem;
+		.crypto-logo{
+			z-index: 1;
+			position: relative;
+			width: 22.87rem;
+			height: 22.87rem;
+			background: radial-gradient(circle, $button-gradient2, $button-gradient1);
+			top: 1.25rem;
+			left: -1.75rem;
+			border-radius: 20rem;
+			box-shadow: -2px 3px 26px 0 $button-gradient1;
+			.crypto-logo-img{
+				position: absolute;
+				left: 20%;
+				top: 31%;
+			}
+		}
+	}
+
+	// Logo Ripple effect
+	#ripple, #ripple2, #ripple3 {
+		
+		border-radius: 9999px;
+		border: 1px solid rgba(255,255,255, 0.4);
+		box-shadow: 0 0 20px rgba(255,255,255, 0.4);
+		position: absolute;
+		bottom: 50%;
+		margin-bottom: -326px;
+		right: 50%;
+		margin-right: -326px;
+		animation: shrink 5s linear infinite;
+		z-index: 0;
+		background:rgba(255,255,255, 0.4);
+	}
+	#ripple {animation-delay: 1s;}
+	#ripple2 {animation-delay: 1.5s;}
+	#ripple3 {animation-delay: 2s;}
+
+	@keyframes shrink {
+		0% {
+			margin-bottom: 0;
+			margin-right: 0;
+			width: 0;
+			height: 0;
+			opacity: 0;}
+		10% { opacity: 0.5;}
+		30% { opacity: 0.3;}
+		60% { opacity: 0;}
+		100% {
+			margin-bottom: -326px;
+			margin-right: -326px;
+			width: 650px;
+			height: 650px;
+			opacity: 0;
+		}
+	}
+
+	.pulse2 {
+		animation: pulse2 5s linear infinite;
+	}
+
+	@keyframes pulse2 {
+		0% {
+		   	transform: scale(0.8);
+		}
+		20% {
+		   	transform: scale(0.8);
+		}
+		60% {
+		   	transform: scale(1);
+		}
+		80% {
+		   	transform: scale(1);
+		}
+		100% {
+		   	transform: scale(0.8);
+		}
+	}
+}

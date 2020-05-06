@@ -1,0 +1,40 @@
+/* Mobile App section : Mobile App button, information and image */
+
+.mobile-app{
+	padding-top:185px;
+	.btn{
+		padding: 0.8rem 1.5rem;		
+	}
+	.mobile-button{
+		span{
+			padding-right: 2.5rem;
+		}
+	}
+	.app-features{
+		padding:0;
+		margin-bottom: 50px;
+		li{
+			padding: 14px 0;
+		}
+	}
+	// Mobile app image layers
+	.mobile-app-imgs{
+		position: relative;
+		margin-top: 60px;
+		.mobile-app-img-2, .mobile-app-img-3, .mobile-app-img-4{
+			position: absolute;
+		}
+		.mobile-app-img-2{
+			top: 60px;
+			left: 250px;
+		}
+		.mobile-app-img-3{
+			top: -13px;
+    		left: 237px;
+		}
+		.mobile-app-img-4{
+			top: -130px;
+    		left: 270px;
+		}
+	}
+}

@@ -1,0 +1,37 @@
+/* Blog Type 2 : Blog with background image with button and title over it */
+
+.news{
+	.card{
+		color: $white;
+		position:relative;
+		border:none;
+		// Wrapper image
+		img{
+			&.card-img-top{
+				border-radius: 0.5rem;
+			}
+		}
+		.blog-content{
+			h5.card-title{
+				font-size: $font-medium;
+			}
+		}
+		// Card footer read-more button
+		.card-footer{
+			position:absolute;
+			bottom:5%;
+			left: 3%;
+			background: none;
+			border:none;
+			.read-more{
+				font-weight:400;
+				padding-left: 2.75rem;
+				padding-right: 2.75rem;
+				z-index:99;
+				position: relative;
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+	}
+}
