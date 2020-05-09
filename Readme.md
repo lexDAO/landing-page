@@ -10,4 +10,4 @@ Source -> /dist on master branch
 
 Test:
 https://lexdao-test.netlify.com
-Sourace -> /dist on test branch
+Source -> /dist on test branch
