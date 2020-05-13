@@ -2576,7 +2576,7 @@ header .navbar.navbar-shadow {
   position : relative;
 }
 .head-area .head-content {
-  height : 100vh;
+  height : 100%;
   z-index : 6;
 }
 .head-area .head-content h1 {
@@ -4213,7 +4213,7 @@ header .navbar.navbar-fixed {
     width : 480px;
   }
   .head-area .head-content .banner-content {
-    padding-top : 0.5rem !important;
+    padding-top : 5rem !important;
   }
   .head-area .head-content h1 {
     font-size : 1.5rem;
