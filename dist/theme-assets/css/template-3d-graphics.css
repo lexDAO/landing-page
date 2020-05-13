@@ -2686,8 +2686,8 @@ header .navbar.navbar-shadow {
 
 /* header section type 2 : Light/Dark page section heading with title, sub-title and desc */
 .section-padding {
-  padding-top : 6.5rem;
-  padding-bottom : 6.5rem;
+  padding-top : 2.5rem;
+  padding-bottom : 2.5rem;
 }
 
 /* Dark section heading */
@@ -4213,7 +4213,7 @@ header .navbar.navbar-fixed {
     width : 480px;
   }
   .head-area .head-content .banner-content {
-    padding-top : 5rem !important;
+    padding-top : .5rem !important;
   }
   .head-area .head-content h1 {
     font-size : 1.5rem;
@@ -4361,7 +4361,7 @@ header .navbar.navbar-fixed {
     font-size : 0.8rem;
   }
   .section-padding {
-    padding : 3rem 0;
+    padding : 1rem 0;
   }
   .dark-bg-heading {
     margin-bottom : 3rem !important;
