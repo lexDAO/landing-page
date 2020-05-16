@@ -3921,7 +3921,7 @@ body.inner-page {
   background :    -moz-linear-gradient(left, #140E38, #194089);
   background :      -o-linear-gradient(left, #140E38, #194089);
   background :         linear-gradient(to right, #140E38, #194089);
-  height : 500px;
+  height : 250px;
   width : 100%;
   position : relative;
 }
@@ -3930,11 +3930,11 @@ body.inner-page {
   background : url('../../theme-assets/images/blockchain.png');
   opacity : 0.2;
   width : 100%;
-  height : 500px;
+  height : 00px;
 }
 .sub-page .page-header .head-content {
-  position : absolute;
-  top : 220px;
+  position : relative;
+  top : 25%;
   text-align : center;
 }
 
