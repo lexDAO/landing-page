@@ -430,9 +430,8 @@ svg#loader g:last-child circle {
 /*  Form Component css
     -------------------------------------------------------------------------------------------*/
 .form-control {
-  border-radius : 0;
-  border : none;
-  border-bottom : 1px solid #EEECF4;
+  border-radius : 4;
+  border : 1px solid #000000;
   color : #3F3F3F;
   font-size : 0.875rem;
   padding : 1rem 0.5rem;
