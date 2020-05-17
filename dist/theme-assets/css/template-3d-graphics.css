@@ -3920,7 +3920,7 @@ body.inner-page {
   background :    -moz-linear-gradient(left, #140E38, #194089);
   background :      -o-linear-gradient(left, #140E38, #194089);
   background :         linear-gradient(to right, #140E38, #194089);
-  height : 250px;
+  height : 200px;
   width : 100%;
   position : relative;
 }
