@@ -98,7 +98,8 @@
                 </div>
                 <div class="col-lg-7 col-md-12 mx-auto">
 	                <p class="font-medium animated text-dark" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Step 1: Connect a Web3 Wallet</p>
-					<p> <a href="#" class="btn btn-lg btn-gradient-blue btn-glow">Connect a Wallet</a></p>
+					<p><button class="btn btn-lg btn-gradient-blue btn-glow" onClick="window.ethereum.enable().then(acc => resolve(first(acc)))">Connect a Wallet</button></p>
+</p>
 					<p class="font-medium animated pt-2 text-dark" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Step 2: Complete the Following</p>
                     <form action="#" method="post" accept-charset="utf-8" class="text-center">
                         <input type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.8s" name="X" placeholder="Your Name (Token Name)">
@@ -175,7 +176,9 @@
     </footer> -->
 
 
-
+	<!-- BEGIN WEB3 JS-->
+	<script src="assets/js/eth-helper.js">
+	<script src="assets/js/loadWeb3.js">	
     <!-- BEGIN VENDOR JS-->
     <!-- <script src="theme-assets/vendors/vendors.min.js"></script>
     <!-- BEGIN VENDOR JS-->
