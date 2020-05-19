@@ -98,12 +98,12 @@
                 </div>
                 <div class="col-lg-7 col-md-12 mx-auto">
 	                <p class="font-medium animated text-dark" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Step 1: Connect a Web3 Wallet</p>
-					<p><button class="btn btn-lg btn-gradient-blue btn-glow" onClick="window.ethereum.enable().then(acc => resolve(first(acc)))">Connect a Wallet</button></p>
+					<p><button class="btn btn-lg btn-gradient-blue btn-glow" onClick="getWalletAddress()">Connect a Wallet</button></p>
 					
 					<p class="font-medium animated pt-2 text-dark" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Step 2: Complete the Following</p>
                     <form action="#" method="post" accept-charset="utf-8" class="text-center">
                         <input type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.8s" name="X" placeholder="Your Name (Token Name)">
-                        <input id="addressInputForm" readonly type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.8s" name="X" placeholder="Your Wallet Address">
+                        <input id="addressFormInput" readonly type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.8s" name="X" placeholder="Your Wallet Address">
                         <input type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.9s" name="Y" placeholder="What are your Initials? (Token Symbol)">
                         <input type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.9s" name="Y" placeholder="What is your Email?">
                        
