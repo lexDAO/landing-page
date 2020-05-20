@@ -49,14 +49,14 @@
 				<!-- Breadcrumb -->
 				<div class="breadcrumb">
 					<a href="index.html">Home</a> / 
-					<a class="current">Personal Token Factory</a>
+					<a class="current">File a Dispute</a>
 				</div>
 				<!--/ Breadcrumb -->
 			</div>
 		</div>
 	</div>
 	<!--/ Head Area -->
-	<!-- Latest Technology -->
+		<!-- Latest Technology -->
 	<div class="section-pro technology">
 		<div class="container-fluid section-bg-inner section-padding" style="padding-bottom: 0% !important;">
 			<div class="container">
@@ -66,7 +66,7 @@
                 	</div>
 					
 					<div class="col-lg-7 col-md-12 mt-5 mx-auto">
-						<h3 class="page-desc-title">LexDAO Personal Token Factory</h3>
+						<h3 class="page-desc-title">LexDAO Personal Token Dispute Resolution</h3>
 						<p>Lawyer built. Legal engineer approved.</p>
                 	</div>
 					
@@ -88,31 +88,19 @@
             </div>
             <div class="row">
             	<div class="col-lg-5 col-md-12 mx-auto">
-	                <p class="font-medium text-dark animated" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Why use "LexDAO Certified" personal tokens?</p>
-					<p>For one, these are the tokens we use, and we're a bunch of lawyers.</p>
-					<p class="font-medium text-dark animated mt-3" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Standardized Values: <a href="#">(Why?)</a></p>
-					<p>1 Token = 1 Minute of Your Time</p>
-					<p>Initial Offering: 240,000 Tokens (1,000 Hrs)</p>
-					<p>Decimal places: 6</p>
-					<p class="font-medium text-dark animated mt-3" data-animation="fadeInUpShorter" data-animation-delay="0.5s">What about disputes?</p>
-					<p>If you're having trouble with a personal token transaction? LexDAO has your back with dispute resolution built in.</p>
-					<p>Need to start a dispute? <a href="./personal-token-dispute.html">Click Here</a></p>
-					<br>
-					<p>If you do not provide your own your Terms of Service link, your token will be governed by <a href="#">LexDAO Default Personal Token TOS</a></p>
-					<p>By clicking "Mint" you agreed to the <a href="#">LexDAO Terms of Service</a>.</p>
+					<p class="font-medium text-dark animated mt-3" data-animation="fadeInUpShorter" data-animation-delay="0.5s">How this works:</p>
+					<p>Something something about how our disputes work.
+					<p class="font-medium text-dark animated mt-3" data-animation="fadeInUpShorter" data-animation-delay="0.5s">What happens now?</p>
+					<p>Your dispute will be submitted to the LexDAO Dispute Resolution</p>
+					
                 </div>
                 <div class="col-lg-7 col-md-12 mx-auto">
-	                <p class="font-medium animated text-dark" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Step 1: Connect a Web3 Wallet</p>
-					<p><button class="btn btn-lg btn-gradient-blue btn-glow" onClick="getWalletAddress()">Connect a Wallet</button></p>
-					
 					<p class="font-medium animated pt-2 text-dark" data-animation="fadeInUpShorter" data-animation-delay="0.5s">Step 2: Complete the Following</p>
-                    <form action="#" method="post" accept-charset="utf-8" class="text-center">
-                        <input type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.8s" name="X" placeholder="Your Name (Token Name)">
-                        <input id="addressFormInput" readonly type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.8s" name="X" placeholder="Your Wallet Address">
-                        <input type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.9s" name="Y" placeholder="What are your Initials? (Token Symbol)">
-                        <input type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.9s" name="Y" placeholder="Terms of Service Link">
-                        <input type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.9s" name="Y" placeholder="What is your Email?">
-                        <button type="submit" class="btn btn-lg btn-gradient-blue btn-glow float-left animated" data-animation="fadeInUpShorter" data-animation-delay="1.1s">Mint</button>
+                    <form id="disputeForm" method="post" accept-charset="utf-8" class="text-center">
+                        
+                        <input type="text" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.9s" name="contact" placeholder="How should we contact you?">
+                        <textarea rows = "5" cols = "60" class="form-control animated" data-animation="fadeInUpShorter" data-animation-delay="0.9s" name="Description" placeholder="What's going wrong with your Personal Token?"></textarea>
+                        <button type="submit" id="Form-submit" class="btn btn-lg btn-gradient-blue btn-glow float-left animated" data-animation="fadeInUpShorter" data-animation-delay="1.1s" value="Submit">Submit</button>
                     </form>
                 </div>
                 
@@ -189,5 +177,22 @@
 	}
 	</script>
     <script src="theme-assets/js/theme.js">
+	<!-- Load jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+		<script>
+		// POST form data to zapier on submit
+		$("#disputeForm").submit(function(e) {
+		  e.preventDefault();
+		  $.ajax({
+		    url: "https://hooks.zapier.com/hooks/catch/1088069/oirijb7",
+		    type: "post",
+		    data: $("#disputeForm").serialize(),
+		    success: function() {
+		      // Redirect to another success page
+		      window.location = "http://google.com";
+		    }
+		  });
+		});
+	</script>
   </body>
 </html>
