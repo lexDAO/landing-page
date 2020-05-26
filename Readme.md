@@ -1,3 +1,3 @@
-Hey there!
+This is the Test branch for the LexDAO langing page.
 
-Getting started with a simple landing page here. - kerp
+Changes pushed to this repo will build here for testing: https://lexdao-test.netlify.app
