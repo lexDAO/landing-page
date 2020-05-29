@@ -1,13 +1,27 @@
-Hey there!
+# LexDAO Frontend
 
-Getting started with a simple landing page here. Feel free to jump in.
+## Develop Uniswap Locally
 
-Using a serverless distro through Netlify. It rebuilds automatically based on the /dist folder on the master branch.
+### Install Dependencies
 
-Production Build (Live version): 
-https://lexdao.netlify.com -> We probably want to redirect .club to this eventually, but can do that through Netlify as well.
-Source -> /dist on master branch
+```bash
+yarn
+```
 
-Test (Draft Version):
-https://lexdao-test.netlify.com
-Source -> /dist on test branch
+### Configure Environment
+
+Rename `.env.local.example` to `.env.local` and fill in the appropriate variables.
+
+### Run
+
+```bash
+yarn start
+```
+
+To run on a testnet, make a copy of `.env.local.example` named `.env.local`, change `REACT_APP_CHAIN_ID` to `"{yourChainId}"`, and change `REACT_APP_NETWORK_URL` to e.g. `"https://{yourNetwork}.infura.io/v3/{yourKey}"`.
+
+If deploying with Github Pages, be aware that there's some [tricky client-side routing behavior with `create-react-app`](https://create-react-app.dev/docs/deployment#notes-on-client-side-routing).
+
+## Contributions
+
+**Please open all pull requests against the `beta` branch.** CI checks will run against all PRs. To ensure that your changes will pass, run `yarn check:all` before pushing. If this command fails, you can try to automatically fix problems with `yarn fix:all`, or do it manually.
