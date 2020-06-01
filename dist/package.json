@@ -15,7 +15,8 @@
     "async": "^2.5.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
-    "gulp-cli": "^1.4.0"
+    "gulp-cli": "^1.4.0",
+    "web3": "^1.2.7" 
   },
   "devDependencies": {
     "gulp": "^3.9.1",
@@ -37,7 +38,8 @@
     "gulp-w3cjs": "^1.3.0",
     "gulp-watch": "^4.3.11",
     "minimist": "^1.2.0",
-    "pug": "^2.0.0-rc.4"
+    "pug": "^2.0.0-rc.4",
+    "web3": "^1.2.7"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
