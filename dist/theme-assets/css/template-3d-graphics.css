@@ -430,9 +430,8 @@ svg#loader g:last-child circle {
 /*  Form Component css
     -------------------------------------------------------------------------------------------*/
 .form-control {
-  border-radius : 0;
-  border : none;
-  border-bottom : 1px solid #EEECF4;
+  border-radius : 4;
+  border : 1px solid #000000;
   color : #3F3F3F;
   font-size : 0.875rem;
   padding : 1rem 0.5rem;
@@ -2576,7 +2575,7 @@ header .navbar.navbar-shadow {
   position : relative;
 }
 .head-area .head-content {
-  height : 100vh;
+  height : 100%;
   z-index : 6;
 }
 .head-area .head-content h1 {
@@ -2686,8 +2685,8 @@ header .navbar.navbar-shadow {
 
 /* header section type 2 : Light/Dark page section heading with title, sub-title and desc */
 .section-padding {
-  padding-top : 6.5rem;
-  padding-bottom : 6.5rem;
+  padding-top : 2.5rem;
+  padding-bottom : 2.5rem;
 }
 
 /* Dark section heading */
@@ -3921,7 +3920,7 @@ body.inner-page {
   background :    -moz-linear-gradient(left, #140E38, #194089);
   background :      -o-linear-gradient(left, #140E38, #194089);
   background :         linear-gradient(to right, #140E38, #194089);
-  height : 500px;
+  height : 200px;
   width : 100%;
   position : relative;
 }
@@ -3930,11 +3929,11 @@ body.inner-page {
   background : url('../../theme-assets/images/blockchain.png');
   opacity : 0.2;
   width : 100%;
-  height : 500px;
+  height : 00px;
 }
 .sub-page .page-header .head-content {
-  position : absolute;
-  top : 220px;
+  position : relative;
+  top : 25%;
   text-align : center;
 }
 
@@ -4213,7 +4212,7 @@ header .navbar.navbar-fixed {
     width : 480px;
   }
   .head-area .head-content .banner-content {
-    padding-top : 0.5rem !important;
+    padding-top : .5rem !important;
   }
   .head-area .head-content h1 {
     font-size : 1.5rem;
@@ -4361,7 +4360,7 @@ header .navbar.navbar-fixed {
     font-size : 0.8rem;
   }
   .section-padding {
-    padding : 3rem 0;
+    padding : 1rem 0;
   }
   .dark-bg-heading {
     margin-bottom : 3rem !important;
