@@ -99,8 +99,8 @@ function PersonalToken({ history }) {
     "symbol": "",
     "stamp": "test",
     "decimals": 6,
-    "initialSupply": 240000,
-    "cap": 2400000
+    "initialSupply": utils.parseEther("240000"),
+    "cap": utils.parseEther("2400000")
   })
 
   const { account } = useWeb3React()
