@@ -157,7 +157,7 @@ function PersonalToken({ history }) {
         <p>
           1 Token = 1 Minute of Your Time<br />
           Initial Offering: 60,000 Tokens (1,000 Hrs)<br />
-          Total Cap: 240,000 (4,000 Hrs) <br />
+          Total Cap: 240,000 Tokens (4,000 Hrs) <br />
           Decimal places: 6
         </p>
 
