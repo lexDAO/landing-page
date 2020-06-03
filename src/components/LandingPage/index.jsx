@@ -31,6 +31,8 @@ const HeroSection = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "left right";
   height: 650px;
+  padding-left: 5%;
+  padding-right: 5%;
 `
 
 const Left = styled.div`
@@ -69,18 +71,25 @@ const Button = styled.a`
   }
 `
 
+const Right = styled.div`
+  gridArea: right;
+  text-align: center;
+`
+
 const HeroImage = styled.img`
   max-width: 550px;
   margin: auto;
 `
 
 const Disclaimer = styled.div`
-  height: 400px;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding-top: 3%;
+  padding-bottom: 3%;
 
   & > h3 {
     font-size: 2rem;
@@ -98,6 +107,9 @@ const Dapps = styled.div`
   background-image: ${({theme}) => theme.backgroundGradient};
   padding: 20px;
   text-align: center;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 3%;
   
   > h3 {
     font-size: 2rem;
@@ -127,6 +139,8 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 
   & > img {
     max-width: 50%;
@@ -147,6 +161,7 @@ const StartDapp = styled.a`
 const Description = styled.div`
   text-align: left;
   margin-top: 100px;
+  margin-left: 5%;
 `
 
 const Bullets = styled.ul`
@@ -162,6 +177,26 @@ const Bullets = styled.ul`
     list-style-type: none;  
   }
 `
+const About = styled.div`
+background-color: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding-top: 3%;
+
+& > h3 {
+  font-size: 2rem;
+  color: #161616;
+  padding; 20px 0;
+}
+
+& > p {
+  color: #3F3F3F;
+  width: 80%;
+}
+`
 
 const Footer = styled.div`
   background-color: ${({theme}) => theme.white};
@@ -169,7 +204,8 @@ const Footer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  padding-top: 3%;
+  padding-bottom: 3%;
 
   & > h3 {
     font-size: 2rem;
@@ -196,11 +232,8 @@ function LandingPage({ history }) {
           <h2>
             LexDAO. The decentralized legal engineering guild.
           </h2>
-          <p>
-            LexDAO is a group of legal engineering professionals who are seeking to provide a trusted layer between the decentralized world of blockchains and a legal settlement layer in the real world. We are trying to bridge this layer to provide a working framework for organizations to work in a trustless and trusted manner using Ethereum, blockchains, smart contracts and decentralized organizations.
-          </p>
           <div>
-            <Button href="https://lexdao.typeform.com/to/jAvfLV">
+            <Button href="#join">
               Join LexDAO
             </Button>
             <Button href="http://lexdao.chat/">
@@ -211,12 +244,12 @@ function LandingPage({ history }) {
             Check out our dApps <span role="img" aria-label="below">👇</span>
           </p>
         </Left>
-        <div style={{ gridArea: 'right'}}>
+        <Right>
           <HeroImage 
             src={require("../../assets/images/banner-graphic.png")} 
             alt="LexDAO Shield" 
           />
-        </div>
+        </Right>   
       </HeroSection>
       <Disclaimer>
         <h3>
@@ -231,7 +264,7 @@ function LandingPage({ history }) {
           Certified LexDAO Dapps
           </h3>
         <sub>
-          dApps built by lawyers and legal engineers
+          dApps built by legal engineers
         </sub>
         {dappsList.map(dapp => {
           return(
@@ -267,17 +300,26 @@ function LandingPage({ history }) {
                 </Bullets>
               </div>
             </Dapp>
+            
           )
         })}
       </Dapps>
+      <About>
+              <h3>
+              About LexDAO
+              </h3>
+              <p>
+              LexDAO is a group of legal engineering professionals who are seeking to provide a trusted layer between the decentralized world of blockchains and a legal settlement layer in the real world. We are trying to bridge this layer to provide a working framework for organizations to work in a trustless and trusted manner using Ethereum, blockchains, smart contracts and decentralized organizations.
+              </p>
+            </About>
       <Footer>
-        <h3>
+        <h3 id="join">
           Join LexDAO
         </h3>
         <p>
           Want to join LexDAO? The best way is just to show up. Drop into the Discord, attend the weekly community calls, maybe throw down some code during the hacking sessions. If it's clear that you're contributing value, a LexDAO member might nominate you to join the DAO. If you're so fired up you can't wait, you can fill out the form launched by the button below to kick start a nomination by giving us your contact info.
         </p>
-        <Button href="http://lexdao.chat/">
+        <Button href="https://lexdao.typeform.com/to/jAvfLV">
           Join LexDAO
         </Button>
       </Footer>
