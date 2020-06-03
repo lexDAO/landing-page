@@ -1,5 +1,5 @@
 .DS_Store
 build
 node_modules
-/.env.local
-/.env.production
+.env
+.env.local
