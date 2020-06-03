@@ -33,8 +33,8 @@ const tokenFormItems = [
 const Wrapper = styled.div`
   display: grid;
   grid-template-areas: "header header"\n"description form";
-  grid-template-rows: 200px auto;
-  grid-template-columns: 40% 60%;
+  grid-template-rows: 20% auto;
+  grid-template-columns: 45% 55%;
 `
 
 const Description = styled.div`
@@ -42,6 +42,7 @@ const Description = styled.div`
   width: 80%;
   margin: auto;
   line-height: 1.7rem;
+  padding-left: 20%;
 
   & > p {
     font-size: 0.938rem;
@@ -61,6 +62,7 @@ const TokenForm = styled.div`
   grid-area: form;
   width: 80%;
   margin: auto;
+  margin-top:0;
   
   & > form {
     display: flex;
@@ -154,7 +156,8 @@ function PersonalToken({ history }) {
         <h3>Standardized Values:</h3>
         <p>
           1 Token = 1 Minute of Your Time<br />
-          Initial Offering: 240,000 Tokens (1,000 Hrs)<br />
+          Initial Offering: 60,000 Tokens (1,000 Hrs)<br />
+          Total Cap: 240,000 (4,000 Hrs) <br />
           Decimal places: 6
         </p>
 
