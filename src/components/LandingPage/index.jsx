@@ -263,7 +263,7 @@ function LandingPage({ history }) {
       </Disclaimer>
       <Dapps>
         <h3>
-          Certified LexDAO Dapps
+          Certified LexDAO dApps
           </h3>
         <sub>
           dApps built by legal engineers
