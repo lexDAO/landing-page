@@ -14,7 +14,6 @@ const dappsList = [
     "bullets": [
       "LexDAO Built",
       "Legal Engineer Certified",
-      "Legally Compliant",
       "DAO Powered Dispute Protection",
       "Built in Terms of Service",
       "Standardized Token Issuance"
