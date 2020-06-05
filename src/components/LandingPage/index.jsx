@@ -12,11 +12,12 @@ const dappsList = [
     "ctaBackground": "linear-gradient(40deg, #28BCFD 20%, #1D78FF 51%, #28BCFD 90%)",
     "ctaRoute": "/personal-token",
     "bullets": [
-      "Lawyer Built",
+      "LexDAO Built",
       "Legal Engineer Certified",
       "Legally Compliant",
       "DAO Powered Dispute Protection",
-      "Built in Terms of Service"
+      "Built in Terms of Service",
+      "Standardized Token Issuance"
     ]
   }
 ]
@@ -160,7 +161,7 @@ const StartDapp = styled.a`
 
 const Description = styled.div`
   text-align: left;
-  margin-top: 100px;
+  margin-top: 11%;
   margin-left: 5%;
 `
 
@@ -178,22 +179,23 @@ const Bullets = styled.ul`
   }
 `
 const About = styled.div`
-background-color: white;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-text-align: center;
-padding-top: 3%;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 3%;
+  padding-bottom: 3%;
 
 & > h3 {
   font-size: 2rem;
-  color: #161616;
+  color: white;
   padding; 20px 0;
 }
 
 & > p {
-  color: #3F3F3F;
+  color: white;
   width: 80%;
 }
 `
@@ -261,7 +263,7 @@ function LandingPage({ history }) {
       </Disclaimer>
       <Dapps>
         <h3>
-          Certified LexDAO Dapps
+          Certified LexDAO dApps
           </h3>
         <sub>
           dApps built by legal engineers
@@ -305,13 +307,13 @@ function LandingPage({ history }) {
         })}
       </Dapps>
       <About>
-              <h3>
-              About LexDAO
-              </h3>
-              <p>
-              LexDAO is a group of legal engineering professionals who are seeking to provide a trusted layer between the decentralized world of blockchains and a legal settlement layer in the real world. We are trying to bridge this layer to provide a working framework for organizations to work in a trustless and trusted manner using Ethereum, blockchains, smart contracts and decentralized organizations.
-              </p>
-            </About>
+        <h3>
+          About LexDAO
+        </h3>
+        <p>
+          LexDAO is a group of legal engineering professionals who are seeking to provide a trusted layer between the decentralized world of blockchains and a legal settlement layer in the real world. We are trying to bridge this layer to provide a working framework for organizations to work in a trustless and trusted manner using Ethereum, blockchains, smart contracts and decentralized organizations.
+        </p>
+      </About>
       <Footer>
         <h3 id="join">
           Join LexDAO
