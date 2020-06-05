@@ -6,6 +6,7 @@ import Web3Status from "../Web3Status"
 import { utils } from "ethers"
 
 import { Link } from "../../theme"
+import { Bold } from "react-feather"
 
 const tokenFormItems = [
   {
@@ -146,44 +147,45 @@ function PersonalToken({ history }) {
   return(
     <Wrapper>
       <div style={{ gridArea: 'header', textAlign: 'center' }}>
-        <h1>LexDAO Personal Token Factory</h1>
-        <sub>Lawyer built. Legal engineer approved.</sub>
+        <h1>Personal Token Factory</h1>
+        <sub>LexDAO built. Legal engineer approved.</sub>
       </div>
       <Description>
         <h3>Why use "LexDAO Certified" personal tokens?</h3>
-        <p>For one, these are the tokens we use, and we're a bunch of lawyers.</p>
+        <p>To start, this is the token code we use within LexDAO! We've used legal engineering to build in stuff like dispute resolution, token terms of service, and some standardized values that just make sense. </p>
 
         <h3>Standardized Values:</h3>
         <p>
           1 Token = 1 Minute of Your Time<br />
           Initial Offering: 60,000 Tokens (1,000 Hrs)<br />
           Total Cap: 240,000 Tokens (4,000 Hrs) <br />
-          Decimal places: 6
+          Decimal places: 6 <br />
+          LexDAO Fee: .0009 ETH
         </p>
 
         <h3>What about disputes?</h3>
-        <p>If you're having trouble with a personal token transaction? LexDAO has your back with dispute resolution built in.</p>
-        <p>Need to start a dispute?&nbsp;
+        <p>Having trouble with a personal token transaction? LexDAO has your back with dispute resolution built in.</p>
+        <p><strong>Need to start a dispute?</strong>&nbsp;
           <Link onClick={() => history.push('/personal-token-dispute')}>
             Click Here
           </Link>
         </p>
 
         <h3>Some legal stuff:</h3>
-        <p>
-          <Link onClick={() => history.push('/why-email')}>
-            Learn why you might want to attach your email.
-          </Link>
-        </p>
         <p>If you do not provide your own your Terms of Service link, your token will be governed by&nbsp;
-          <Link onClick={() => history.push('/personal-token-dispute')}>
+          <Link id="link" href="https://hackmd.io/@LexDAO/Default-Personal-Token-TOS">
             LexDAO Default Personal Token TOS
           </Link>
         </p>
         <p>By clicking "Mint" you agreed to the&nbsp;
-          <Link onClick={() => history.push('/personal-token-dispute')}>
+          <Link id="link" href="https://hackmd.io/@LexDAO/Token-Factory-TOS">
             LexDAO Terms of Service
           </Link>.
+        </p>
+        <p>
+        <Link id="link" href="https://hackmd.io/@LexDAO/why-email">
+            Learn why you might want to attach your email.
+          </Link>
         </p>
       </Description>
       <TokenForm>
