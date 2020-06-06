@@ -9,6 +9,8 @@ import { Link } from "../../theme"
 import Modal from "../Modal"
 // import { Bold } from "react-feather"
 
+const TOKEN_WEBHOOK = process.env.REACT_APP_TOKEN_WEBHOOK
+
 const tokenFormItems = [
   {
     name:"name",
@@ -163,7 +165,22 @@ function PersonalToken({ history }) {
         value: utils.parseEther("0.0009")             //  lexdao tribute
       }
     )
+
+    const response = await fetch(TOKEN_WEBHOOK, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        name: token.name,
+        symbol: token.symbol,
+        stamp: token.stamp,
+        account: account,
+        transaction: result.hash
+      })
+    });
     
+    console.log(response);
     console.log(result);
 
     if (result) {

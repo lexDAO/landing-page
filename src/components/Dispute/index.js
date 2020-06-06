@@ -5,6 +5,8 @@ import styled from "styled-components"
 import { Link } from "../../theme"
 import Modal from "../Modal"
 
+const DISPUTE_WEBHOOK = process.env.REACT_APP_DISPUTE_WEBHOOK
+
 const tokenFormItems = [
   {
     name: "name",
@@ -144,11 +146,10 @@ function Dispute({ history }) {
   }
 
   async function onSubmitDispute(dispute) {
-    const result = await fetch('https://hooks.zapier.com/hooks/catch/1088069/oirijb7/', {
+    const result = await fetch(DISPUTE_WEBHOOK, {
       method: 'POST',
       headers: {
-          Accept: 'application/json',
-          // 'Content-Type': 'application/json'
+        Accept: 'application/json',
       },
       body: JSON.stringify({
         name: dispute.name,

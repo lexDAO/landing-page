@@ -60,6 +60,7 @@ const Left = styled.div`
   grid-area: left;
   width: 80%;
   margin: auto;
+  color: white;
 
   & > h2 {
     font-size: 2rem;
@@ -131,6 +132,7 @@ const Dapps = styled.div`
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 3%;
+  color: white;
   
   > h3 {
     font-size: 2rem;
