@@ -11,7 +11,7 @@ import Modal from "../Modal"
 
 const tokenFormItems = [
   {
-    name:"tokenName",
+    name:"name",
     type: "text",
     placeholder:"Personal Token Name",
   },
