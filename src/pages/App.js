@@ -9,6 +9,7 @@ import { getAllQueryParams } from '../utils'
 
 const Landing = lazy(() => import('./Landing'))
 const PersonalToken = lazy(() => import('./PersonalToken'))
+const Dispute = lazy(() => import('./Dispute'))
 
 const AppWrapper = styled.div`
   display: flex;
@@ -43,33 +44,38 @@ export default function App() {
   return (
     <>
       <Suspense fallback={null}>
-        <AppWrapper>
-          <BodyWrapper>
-            <Body>
-              <Web3ReactManager>
-                <HashRouter>
-                  {/* this Suspense is for route code-splitting */}
-                  <Suspense fallback={null}>
-                    <Switch>
-                      <Route
-                        path="/personal-token"
-                        component={() => <PersonalToken params={params} />}
-                      />
-                      <Route
-                        path="/"
-                        component={() => <Landing params={params} />}
-                      />
-                      <Redirect to="/" />
-                    </Switch>
-                  </Suspense>
-                </HashRouter>
-              </Web3ReactManager>
-            </Body>
-          </BodyWrapper>
-          <FooterWrapper>
-            <Footer />
-          </FooterWrapper>
-        </AppWrapper>
+        <HashRouter>
+          <AppWrapper>
+            <BodyWrapper>
+              <Body>
+                <Web3ReactManager>
+                    {/* this Suspense is for route code-splitting */}
+                    <Suspense fallback={null}>
+                      <Switch>
+                        <Route
+                          path="/personal-token"
+                          component={() => <PersonalToken params={params} />}
+                        />
+                        <Route
+                          path="/personal-token-dispute"
+                          component={() => <Dispute params={params} />}
+                        />
+                        <Route
+                          path="/"
+                          component={() => <Landing params={params} />}
+                        />
+                        <Redirect to="/" />
+                      </Switch>
+                    </Suspense>
+                  
+                </Web3ReactManager>
+              </Body>
+            </BodyWrapper>
+            <FooterWrapper>
+              <Footer />
+            </FooterWrapper>
+          </AppWrapper>
+        </HashRouter>
       </Suspense>
     </>
   )
