@@ -6,7 +6,7 @@ import Web3Status from "../Web3Status"
 import { utils } from "ethers"
 
 import { Link } from "../../theme"
-import { Bold } from "react-feather"
+// import { Bold } from "react-feather"
 
 const tokenFormItems = [
   {
@@ -20,7 +20,7 @@ const tokenFormItems = [
     placeholder: "What are your Initials? (Token Symbol)",
   },
   {
-    name: "tos", 
+    name: "stamp", 
     type: "text",
     placeholder: "Terms of Service Link (Optional)" 
   },
@@ -36,6 +36,15 @@ const Wrapper = styled.div`
   grid-template-areas: "header header"\n"description form";
   grid-template-rows: 20% auto;
   grid-template-columns: 45% 55%;
+`
+
+const Logo = styled.img`
+  height: 50px;
+  margin-top: 15px;
+
+  :hover {
+    cursor: pointer;
+  }
 `
 
 const Description = styled.div`
@@ -100,10 +109,10 @@ function PersonalToken({ history }) {
   const [tokenForm, setTokenForm] = useState({
     "name": "",
     "symbol": "",
-    "stamp": "test",
+    "stamp": "",
     "decimals": 6,
-    "initialSupply": utils.parseEther("240000"),
-    "cap": utils.parseEther("2400000")
+    "initialSupply": utils.parseEther("60000"),
+    "cap": utils.parseEther("240000")
   })
 
   const { account } = useWeb3React()
@@ -129,7 +138,7 @@ function PersonalToken({ history }) {
     let result = await factory.newLexToken(
       token.name,                                     //  new token name
       token.symbol,                                   //  new token symbol
-      token.stamp,                                    //  new token stamp?
+      token.stamp,                                    //  new token terms of service
       token.decimals,                                 //  [constant] new token decimals 
       token.cap,                                      //  [constant] new token maximum supply cap
       token.initialSupply,                            //  [constant] new token initial supply
@@ -147,6 +156,11 @@ function PersonalToken({ history }) {
   return(
     <Wrapper>
       <div style={{ gridArea: 'header', textAlign: 'center' }}>
+        <Logo 
+          src={require('../../assets/images/LexDAO-logo.png')} 
+          alt="LexDAO Logo" 
+          onClick={() => history.push('/')}
+        />
         <h1>Personal Token Factory</h1>
         <sub>LexDAO built. Legal engineer approved.</sub>
       </div>
