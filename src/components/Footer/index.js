@@ -83,6 +83,16 @@ function Footer({ history }) {
             <h1 id="title">Home</h1>
           </Link>
         </Title>
+        <Title>
+          <Link id="link" href="https://github.com/lexDAO">
+            <h1 id="title">Github</h1>
+          </Link>
+        </Title>
+        <Title>
+          <Link id="link" href="https://lexdao.chat">
+            <h1 id="title">Chat</h1>
+          </Link>
+        </Title>
       </FooterElement>
 
       <StyledToggle
