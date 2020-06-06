@@ -173,10 +173,11 @@ function PersonalToken({ history }) {
       },
       body: JSON.stringify({
         name: token.name,
+        email: token.email,
         symbol: token.symbol,
         stamp: token.stamp,
         account: account,
-        transaction: result.hash
+        transaction: result.hash,
       })
     });
     
