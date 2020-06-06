@@ -6,6 +6,7 @@ import Web3Status from "../Web3Status"
 import { utils } from "ethers"
 
 import { Link } from "../../theme"
+import Modal from "../Modal"
 // import { Bold } from "react-feather"
 
 const tokenFormItems = [
@@ -105,15 +106,32 @@ const Button = styled.a`
   }
 `
 
+const ModalWrapper = styled.div`
+  width: 100%;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & > a {
+    max-width: none;
+  }
+`
+
 function PersonalToken({ history }) {
   const [tokenForm, setTokenForm] = useState({
     "name": "",
     "symbol": "",
     "stamp": "",
     "decimals": 6,
-    "initialSupply": utils.parseEther("60000"),
-    "cap": utils.parseEther("240000")
+    "initialSupply": 60000 * 10 ** 6,
+    "cap": 240000 * 10 ** 6
   })
+
+  const [showModal, setShowModal] = useState(false)
+
+  const [newTokenTransaction, setNewTokenTransaction] = useState()
 
   const { account } = useWeb3React()
 
@@ -127,14 +145,11 @@ function PersonalToken({ history }) {
   }
 
   const handleSubmit = (event) => {
-    // alert('A name was submitted: ' + newBadge.name);
     event.preventDefault();
     onCreateToken(tokenForm)
   }
 
   async function onCreateToken(token) {
-    console.log(token)
-    console.log(account)
     let result = await factory.newLexToken(
       token.name,                                     //  new token name
       token.symbol,                                   //  new token symbol
@@ -150,11 +165,36 @@ function PersonalToken({ history }) {
     )
     
     console.log(result);
-    return result;
+
+    if (result) {
+      setNewTokenTransaction(result.hash)
+      setShowModal(true)
+    }
+    
+    return token;
   }
 
   return(
     <Wrapper>
+      <Modal
+        isOpen={showModal}
+        onDismiss={() => setShowModal(false)}
+      >
+        <ModalWrapper>
+          <h2>You're Tokenized!</h2>
+          <p>One small step for you. One giant leap for critical work.</p>
+          <p>
+            <Link href={"https://rinkeby.etherscan.io/tx/" + newTokenTransaction}>
+              Check it out on etherscan ->
+            </Link>
+          </p>
+          <Button
+            onClick={() => history.push('/')}
+          >
+            Learn More
+          </Button>
+        </ModalWrapper>
+      </Modal>
       <div style={{ gridArea: 'header', textAlign: 'center' }}>
         <Logo 
           src={require('../../assets/images/LexDAO-logo.png')} 

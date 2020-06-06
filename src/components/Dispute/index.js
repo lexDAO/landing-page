@@ -173,7 +173,7 @@ function Dispute({ history }) {
         maxHeight={200}
       >
         <ModalWrap>
-          <h1>Your submission has been received!</h1>
+          <h2>Your submission has been received!</h2>
           <p>
             We'll update you on the next steps for your dispute in the next 3 business days. If you have any questions reach out to us on&nbsp;
             <Link href="https://lexdao.chat">
