@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactGA from 'react-ga'
+import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { darken, transparentize } from 'polished'
 import Toggle from 'react-switch'
@@ -71,15 +72,25 @@ const EmojiToggle = styled.span`
   font-family: Arial sans-serif;
 `
 
-export default function Footer() {
+function Footer({ history }) {
   const [isDark, toggleDarkMode] = useDarkModeManager()
 
   return (
     <FooterFrame>
       <FooterElement>
         <Title>
-          <Link id="link" href="https://lexdao.org">
+          <Link id="link" onClick={() => history.push('/')}>
             <h1 id="title">Home</h1>
+          </Link>
+        </Title>
+        <Title>
+          <Link id="link" href="https://github.com/lexDAO">
+            <h1 id="title">Github</h1>
+          </Link>
+        </Title>
+        <Title>
+          <Link id="link" href="https://lexdao.chat">
+            <h1 id="title">Chat</h1>
           </Link>
         </Title>
       </FooterElement>
@@ -110,3 +121,5 @@ export default function Footer() {
     </FooterFrame>
   )
 }
+
+export default withRouter(Footer)

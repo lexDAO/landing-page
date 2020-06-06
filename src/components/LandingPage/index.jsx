@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { withRouter } from "react-router-dom"
 
-const dappsList = [
+const certifiedDapps = [
   {
     "name": "LexDAO Personal Token Factory",
     "background": "linear-gradient(32deg, #FF4137, #FDC800)",
@@ -19,6 +19,27 @@ const dappsList = [
       "Standardized Token Issuance"
     ]
   }
+]
+
+const developmentDapps = [
+    // {
+    //     "name": "LexSecurity Token",
+    //     "background": "linear-gradient(32deg, #FF4137, #FDC800)",
+    //     "imgPath": "factory",
+    //     "description": "Tokenize yourself with the LexDAO Certified Personal Token Factory.<br />We make minting a personal token quick, easy, and safe.",
+    //     "cta": "Coming Soon",
+    //     "ctaBackground": "linear-gradient(40deg, #28BCFD 20%, #1D78FF 51%, #28BCFD 90%)",
+    //     "githubUrl": "https://github.com/lexDAO/Security-Token"
+    // },
+    // {
+    //     "name": "LexLocker for Digital Deals",
+    //     "background": "linear-gradient(32deg, #FF4137, #FDC800)",
+    //     "imgPath": "factory",
+    //     "description": "Tokenize yourself with the LexDAO Certified Personal Token Factory.<br />We make minting a personal token quick, easy, and safe.",
+    //     "cta": "Coming Soon",
+    //     "ctaBackground": "linear-gradient(40deg, #28BCFD 20%, #1D78FF 51%, #28BCFD 90%)",
+    //     "githubUrl": "https://github.com/lexDAO/Escrow"
+    // },
 ]
 
 const Wrapper = styled.div`
@@ -39,6 +60,7 @@ const Left = styled.div`
   grid-area: left;
   width: 80%;
   margin: auto;
+  color: white;
 
   & > h2 {
     font-size: 2rem;
@@ -110,6 +132,7 @@ const Dapps = styled.div`
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 3%;
+  color: white;
   
   > h3 {
     font-size: 2rem;
@@ -152,6 +175,8 @@ const StartDapp = styled.a`
   margin-top: 25px;
   padding: 1rem 3rem;
   border-radius: 5px;
+  color: white;
+  text-decoration: none;
   
   :hover {
     cursor: pointer;
@@ -267,7 +292,7 @@ function LandingPage({ history }) {
         <sub>
           dApps built by legal engineers
         </sub>
-        {dappsList.map(dapp => {
+        {certifiedDapps.map(dapp => {
           return(
             <Dapp key={dapp.name}>
               <div style={{ gridArea: 'left' }}>
@@ -304,6 +329,39 @@ function LandingPage({ history }) {
             
           )
         })}
+        {developmentDapps.length > 0 &&
+            <>
+                <h3>In Development</h3>
+                <p>Experimental. Proceed with caution.</p>
+                {developmentDapps.map(dapp => {
+                    return (
+                        <Dapp key={dapp.name}>
+                            <div style={{ gridArea: 'left' }}>
+                                <h4>
+                                {dapp.name}
+                                </h4>
+                                <Card backgroundImage={dapp.background}>
+                                <img 
+                                    src={require("../../assets/images/" + dapp.imgPath + ".png")} 
+                                    alt={dapp.imgPath + " image"}
+                                />
+                                <StartDapp 
+                                    backgroundImage={dapp.ctaBackground}
+                                    href={dapp.githubUrl}
+                                >
+                                    {dapp.cta}
+                                </StartDapp>
+                                </Card>
+                            </div>
+                            <div style={{ gridArea: 'right' }}>
+                                <Description dangerouslySetInnerHTML={{ __html: dapp.description }} />
+                                <p style={{ marginTop: '120px' }}>We're actively working on this app. Subscribe to find out more.</p>
+                            </div>
+                        </Dapp>
+                    )
+                })}
+            </>
+        }
       </Dapps>
       <About>
         <h3>
