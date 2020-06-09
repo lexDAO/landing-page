@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react"
+import React, { useState } from "react"
 import { withRouter } from "react-router-dom"
 import styled from "styled-components"
 import { useFactoryContract, useWeb3React } from "../../hooks"
@@ -7,24 +7,12 @@ import { utils } from "ethers"
 
 import ReactMarkdown from 'react-markdown';
 import Handlebars from 'handlebars';
-import {
-  pdf,
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-  PDFDownloadLink,
-  BlobProvider,
-  Font
-} from '@react-pdf/renderer';
 import Axios from 'axios';
 
 import AWS from 'aws-sdk';
 
 import { Link } from "../../theme"
 import Modal from "../Modal"
-// import { Bold } from "react-feather"
 
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -181,6 +169,10 @@ function PersonalToken({ history }) {
     onCreateToken(tokenForm)
   }
 
+  /**
+   * Converts React HTML Components to PDF
+   * @param {*} html
+   */
   const htmlToPDF = html => {
 
     const getTextFromChildren = (children, depth = 0) => {
@@ -216,13 +208,14 @@ function PersonalToken({ history }) {
         content.push({text, style});
 
         if (depth === 0) content.push('\n');
+
+        return c;
       });
 
       return content;
     }
 
     return new Promise((resolve, reject) => {
-      console.log({html});
       let content = getTextFromChildren(html.props.children);
 
       const styles = {
@@ -235,8 +228,6 @@ function PersonalToken({ history }) {
         }
       };
 
-      console.log({content, styles});
-
       const pdfDocGenerator = pdfMake.createPdf({content, styles});
       // pdfDocGenerator.getBlob((data) => {
       pdfDocGenerator.getBase64((data) => {
@@ -245,7 +236,12 @@ function PersonalToken({ history }) {
     });
   }
 
-  async function generateDefaultTOSUrl(token) {
+  /**
+   * Generates default TOS PDF and uploads to Fleek
+   * @param {*} token
+   */
+  function generateDefaultTOSUrl(token) {
+    return new Promise (async (resolve, reject) => {
     // Fetch default template
     const templateUrl = 'https://raw.githubusercontent.com/lexDAO/LexDAO-Documents/master/TOS/Personal-Token-Default-TOS.md';
     const templateMD = await Axios.get(templateUrl);
@@ -271,11 +267,9 @@ function PersonalToken({ history }) {
 
     // Generate PDF
     const pdfDoc = await htmlToPDF(htmlTOS);
-    console.log({pdfDoc});
 
     // Store PDF
     const Key = `LexDAO-TOS/${Date.now()}-${token.symbol}.pdf`;
-    console.log({Key});
     const params = {
       Bucket: process.env.REACT_APP_FLEEK_BUCKET,
       Key,
@@ -284,17 +278,41 @@ function PersonalToken({ history }) {
       ACL: 'public-read'
     };
     const request = await s3.putObject(params);
-    const response = await request.send();
-    console.log({response});
+    // const response = await request.send();
 
-    // Return PDF Url
-    return [process.env.REACT_APP_FLEEK_BUCKET,'.storage.fleek.co/',Key].join('');
+    let hash = {url: [process.env.REACT_APP_FLEEK_BUCKET,'.storage.fleek.co/',Key].join('')};
+    await request.on('httpHeaders', (statusCode, headers) => {
+      console.log({statusCode});
+      if (statusCode === 200) {
+        const ipfsHash = headers['x-fleek-ipfs-hash'];
+        // Do stuff with ifps hash....
+        const ipfsHashV0 = headers['x-fleek-ipfs-hash-v0'];
+        // Do stuff with the short v0 ipfs hash... (appropriate for storing on blockchains)
+
+        hash = {...hash, ipfsHash, ipfsHashV0};
+
+        // Return PDF Url
+        resolve(hash);
+      } else {
+        reject('Issues saving TOS.')
+      }
+    }).send();
+    })
   }
 
   async function onCreateToken(token) {
 
     // If no TOS link provided, generate default
-    if (!token.stamp) token.stamp = await generateDefaultTOSUrl(token);
+    if (!token.stamp) {
+      const TOSIPFSData = await generateDefaultTOSUrl(token);
+
+      // Store the Fleek URL
+      token.stamp = TOSIPFSData.url;
+
+      // Optionally, can store the IPFS hash
+      // Just uncomment the next line
+      // token.stamp = TOSIPFSDATA.ipfsHash;
+    }
 
     let result = await factory.newLexToken(
       token.name,                                     //  new token name
