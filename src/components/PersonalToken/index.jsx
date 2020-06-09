@@ -1,13 +1,43 @@
-import React, { useState } from "react"
+import React, { useState, Fragment } from "react"
 import { withRouter } from "react-router-dom"
 import styled from "styled-components"
 import { useFactoryContract, useWeb3React } from "../../hooks"
 import Web3Status from "../Web3Status"
 import { utils } from "ethers"
 
+import ReactMarkdown from 'react-markdown';
+import Handlebars from 'handlebars';
+import {
+  pdf,
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  PDFDownloadLink,
+  BlobProvider,
+  Font
+} from '@react-pdf/renderer';
+import Axios from 'axios';
+
+import AWS from 'aws-sdk';
+
 import { Link } from "../../theme"
 import Modal from "../Modal"
 // import { Bold } from "react-feather"
+
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+const s3 = new AWS.S3({
+  apiVersion: '2006-03-01',
+  accessKeyId: process.env.REACT_APP_FLEEK_API_KEY,
+  secretAccessKey: process.env.REACT_APP_FLEEK_API_SECRET,
+  endpoint: 'https://storageapi.fleek.co',
+  region: 'us-east-1',
+  s3ForcePathStyle: true
+});
 
 const TOKEN_WEBHOOK = process.env.REACT_APP_TOKEN_WEBHOOK
 
@@ -23,9 +53,9 @@ const tokenFormItems = [
     placeholder: "What are your Initials? (Token Symbol)",
   },
   {
-    name: "stamp", 
+    name: "stamp",
     type: "text",
-    placeholder: "Terms of Service Link (Optional)" 
+    placeholder: "Terms of Service Link (Optional)"
   },
   {
     name: "email",
@@ -76,7 +106,7 @@ const TokenForm = styled.div`
   width: 80%;
   margin: auto;
   margin-top:0;
-  
+
   & > form {
     display: flex;
     flex-direction: column;
@@ -151,12 +181,126 @@ function PersonalToken({ history }) {
     onCreateToken(tokenForm)
   }
 
+  const htmlToPDF = html => {
+
+    const getTextFromChildren = (children, depth = 0) => {
+      if (!children || !children.map || typeof children === 'string') return children;
+
+      if (children[0] && children[0].props && children[0].props.children && typeof children[0].props.children === 'string') return children[0].props.children;
+
+      let listCounter = 1;
+      let content = [];
+
+      children.map(c => {
+        const style = c.key.split('-')[0];
+        let text = [];
+
+        switch(style) {
+            case 'list':
+              text.push(`${listCounter}. `);
+              listCounter++;
+              text.push({text: getTextFromChildren(c.props.children, depth + 1)});
+              break;
+            case 'listItem':
+            case 'paragraph':
+              text.push({text: getTextFromChildren(c.props.children, depth + 1)});
+              text.push('\n');
+              break;
+            case 'strong':
+              text = getTextFromChildren(c.props.children, depth + 1);
+              break;
+            default:
+              text.push({text: getTextFromChildren(c.props.children, depth + 1)});
+        }
+
+        content.push({text, style});
+
+        if (depth === 0) content.push('\n');
+      });
+
+      return content;
+    }
+
+    return new Promise((resolve, reject) => {
+      console.log({html});
+      let content = getTextFromChildren(html.props.children);
+
+      const styles = {
+        heading: {
+          fontSize: 22,
+          bold: true,
+        },
+        strong: {
+          bold: true
+        }
+      };
+
+      console.log({content, styles});
+
+      const pdfDocGenerator = pdfMake.createPdf({content, styles});
+      // pdfDocGenerator.getBlob((data) => {
+      pdfDocGenerator.getBase64((data) => {
+        resolve({data});
+      });
+    });
+  }
+
+  async function generateDefaultTOSUrl(token) {
+    // Fetch default template
+    const templateUrl = 'https://raw.githubusercontent.com/lexDAO/LexDAO-Documents/master/TOS/Personal-Token-Default-TOS.md';
+    const templateMD = await Axios.get(templateUrl);
+
+    // Adapt for
+    const {data: templateForConversion} = templateMD;
+    const template = templateForConversion.replace(/\$\[\[(.*?)\]\]/gi, e => `{{${e.substring(3,e.length-2).replace(/\s/gi,'_')}}}`);
+
+    // Populate Variables
+    const hbTemplate = await Handlebars.compile(template);
+
+    // Adjust token vars for template insertion
+    const tosVars = {
+      'token_name': token.symbol,
+      'consultant_name': token.name,
+      'consultant_address': account,
+    }
+    // Create Markdown TOS with inserted variables
+    const mkTOS = await hbTemplate(tosVars);
+
+    // Create HTML TOS with inserted variables
+    const htmlTOS = await ReactMarkdown({source: mkTOS})
+
+    // Generate PDF
+    const pdfDoc = await htmlToPDF(htmlTOS);
+    console.log({pdfDoc});
+
+    // Store PDF
+    const Key = `LexDAO-TOS/${Date.now()}-${token.symbol}.pdf`;
+    console.log({Key});
+    const params = {
+      Bucket: process.env.REACT_APP_FLEEK_BUCKET,
+      Key,
+      ContentType: 'application/pdf',
+      Body: new Buffer(pdfDoc.data, 'base64'),
+      ACL: 'public-read'
+    };
+    const request = await s3.putObject(params);
+    const response = await request.send();
+    console.log({response});
+
+    // Return PDF Url
+    return [process.env.REACT_APP_FLEEK_BUCKET,'.storage.fleek.co/',Key].join('');
+  }
+
   async function onCreateToken(token) {
+
+    // If no TOS link provided, generate default
+    if (!token.stamp) token.stamp = await generateDefaultTOSUrl(token);
+
     let result = await factory.newLexToken(
       token.name,                                     //  new token name
       token.symbol,                                   //  new token symbol
       token.stamp,                                    //  new token terms of service
-      token.decimals,                                 //  [constant] new token decimals 
+      token.decimals,                                 //  [constant] new token decimals
       token.cap,                                      //  [constant] new token maximum supply cap
       token.initialSupply,                            //  [constant] new token initial supply
       account,                                        //  new token owner
@@ -180,7 +324,7 @@ function PersonalToken({ history }) {
         transaction: result.hash,
       })
     });
-    
+
     console.log(response);
     console.log(result);
 
@@ -188,7 +332,7 @@ function PersonalToken({ history }) {
       setNewTokenTransaction(result.hash)
       setShowModal(true)
     }
-    
+
     return token;
   }
 
@@ -214,9 +358,9 @@ function PersonalToken({ history }) {
         </ModalWrapper>
       </Modal>
       <div style={{ gridArea: 'header', textAlign: 'center' }}>
-        <Logo 
-          src={require('../../assets/images/LexDAO-logo.png')} 
-          alt="LexDAO Logo" 
+        <Logo
+          src={require('../../assets/images/LexDAO-logo.png')}
+          alt="LexDAO Logo"
           onClick={() => history.push('/')}
         />
         <h1>Personal Token Factory</h1>
@@ -261,7 +405,7 @@ function PersonalToken({ history }) {
         </p>
       </Description>
       <TokenForm>
-        
+
         <div>
           <h3>Step 1: Connect a Web3 Wallet</h3>
           <div style={{ maxWidth: '200px' }}>
