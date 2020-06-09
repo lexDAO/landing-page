@@ -203,7 +203,7 @@ function PersonalToken({ history }) {
           <p>One small step for you. One giant leap for critical work.</p>
           <p>
             <Link href={"https://rinkeby.etherscan.io/tx/" + newTokenTransaction}>
-              Check it out on etherscan ->
+              Check it out on etherscan - 
             </Link>
           </p>
           <Button

@@ -201,7 +201,7 @@ function Dispute({ history }) {
       </div>
       <Description>
         <h3>What is a token dispute?</h3>
-        <p>To start, this is the token code we use within LexDAO! We've used legal engineering to build in stuff like dispute resolution, token terms of service, and some standardized values that just make sense. </p>
+        <p>LexDAO Certified Personal Tokens have protection built in. If you're having any kind of problem, use this form to let us know. We'll do our best to get it resolved.</p>
 
         <h3>How will a dispute be resolved?</h3>
         <p>We'll review the facts presented by both parties and ensure an objective outcome.</p>
