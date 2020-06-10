@@ -364,7 +364,7 @@ function PersonalToken({ history }) {
           <h2>You're Tokenized!</h2>
           <p></p>
           <p>
-            <Link href={"https://rinkeby.etherscan.io/tx/" + newTokenTransaction}>
+            <Link href={"https://etherscan.io/tx/" + newTokenTransaction}>
               View your transaction on Etherscan
             </Link>
           </p>
