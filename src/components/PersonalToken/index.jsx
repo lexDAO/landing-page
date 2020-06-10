@@ -33,7 +33,7 @@ const tokenFormItems = [
   {
     name:"name",
     type: "text",
-    placeholder:"Personal Token Name",
+    placeholder:"Your Name",
   },
   {
     name: "symbol",
@@ -362,17 +362,17 @@ function PersonalToken({ history }) {
       >
         <ModalWrapper>
           <h2>You're Tokenized!</h2>
-          <p>One small step for you. One giant leap for critical work.</p>
+          <p></p>
           <p>
             <Link href={"https://rinkeby.etherscan.io/tx/" + newTokenTransaction}>
-              Check it out on etherscan - 
+              View your token on Etherscan - 
             </Link>
           </p>
-          <Button
+          {/*<Button
             onClick={() => history.push('/')}
           >
             Learn More
-          </Button>
+          </Button> */}
         </ModalWrapper>
       </Modal>
       <div style={{ gridArea: 'header', textAlign: 'center' }}>
