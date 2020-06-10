@@ -365,14 +365,21 @@ function PersonalToken({ history }) {
           <p></p>
           <p>
             <Link href={"https://rinkeby.etherscan.io/tx/" + newTokenTransaction}>
-              View your token on Etherscan - 
+              View your transaction on Etherscan
             </Link>
           </p>
+          <br></br>
+            <img style={{maxWidth: "90%"}} alt={"Transaction Screenshot"} src={require('../../assets/images/TxScreenshot.png')}/>
+            <p>
+            Wait for the transaction confirmation and follow this link <span>👆</span>
+          </p>
+
           {/*<Button
             onClick={() => history.push('/')}
           >
             Learn More
           </Button> */}
+
         </ModalWrapper>
       </Modal>
       <div style={{ gridArea: 'header', textAlign: 'center' }}>
