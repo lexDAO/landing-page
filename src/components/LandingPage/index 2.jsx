@@ -378,7 +378,7 @@ function LandingPage({ history }) {
         <p>
           Want to join LexDAO? The best way is just to show up. Drop into the Discord, attend the weekly community calls, maybe throw down some code during the hacking sessions. If it's clear that you're contributing value, a LexDAO member might nominate you to join the DAO. If you're so fired up you can't wait, you can fill out the form launched by the button below to kick start a nomination by giving us your contact info.
         </p>
-        <Button href="https://airtable.com/shra1ZiDYrqdR6UR9">
+        <Button href="https://lexdao.typeform.com/to/jAvfLV">
           Join LexDAO
         </Button>
       </Footer>
